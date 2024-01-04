@@ -42,14 +42,14 @@ public class MarriageCertificateProgram {
         certificate.setWifeDateOfBirth(scanner.nextLine());
 
         System.out.print(personType + " Age: ");
-        certificate.setWifeAge(scanner.nextInt());
-        scanner.nextLine(); // Consume the newline character
+        certificate.setWifeAge(scanner.nextLine());
+        //scanner.nextLine(); // Consume the newline character
 
         System.out.print(personType + " Place of Birth (City, Province): ");
         certificate.setWifePlaceOfBirth(scanner.nextLine());
 
         System.out.print(personType + " Sex(f/m): ");
-        certificate.setWifeSex(scanner.nextLine().charAt(0));
+        certificate.setWifeSex(scanner.nextLine());
 
         System.out.print(personType + " Citizenship: ");
         certificate.setWifeCitezenship(scanner.nextLine());
@@ -134,22 +134,66 @@ public class MarriageCertificateProgram {
 
     private static void editCertificateInformation(Scanner scanner, MarriageCertificate certificate) {
         System.out.print("Enter the line number you want to edit: ");
-        int lineNumber = scanner.nextInt();
-        scanner.nextLine(); // Consume the newline character
+        String lineNumber = scanner.nextLine();
+        //scanner.nextLine(); // Consume the newline character
 
         System.out.print("Enter the new value: ");
         String newValue = scanner.nextLine();
 
         switch (lineNumber) {
-            case 1:
+            case "1a":
                 certificate.setWifeName(newValue);
                 break;
-            case 2:
+            case "1b":
                 certificate.setWifeMiddle(newValue);
                 break;
-            case 3:
+            case "1c":
                 certificate.setWifeLast(newValue);
                 break;
+            case "2":
+                certificate.setWifeDateOfBirth(newValue);
+            case "3": 
+                certificate.setWifeAge(newValue);
+                break;
+            case "4": 
+                certificate.setWifePlaceOfBirth(newValue);
+                break;
+            case "5": 
+                certificate.setWifeSex(newValue);
+                break;
+            case "6": 
+                certificate.setWifeCitezenship(newValue);
+                break;
+            case "7d": 
+                certificate.setWifeProvince(newValue);
+                break;
+            case "7c":
+                certificate.setWifeCity(newValue);
+                break;
+            case "7b":
+                certificate.setWifeBarangay(newValue);
+                break;
+            case "7a": 
+                certificate.setWifeStreet(newValue);
+                break;
+            case "8": 
+                certificate.setWifeReligion(newValue);
+                break;
+            case "9":
+                 certificate.setWifeStatus(newValue);
+                 break;
+            case "10":
+                 certificate.setWifeFather(newValue);
+                 break;
+            case "11": 
+                 certificate.setWifeFatherCitizen(newValue);
+                 break;
+            case "12":
+                 certificate.setWifeMother(newValue);
+                 break;
+            case "13": 
+                 certificate.setWifeMotherCitizen(newValue);
+
             // Add cases for other lines as needed
             default:
                 System.out.println("Invalid line number.");

@@ -7,9 +7,9 @@ public class MarriageCertificate{
 	String Wife_Middle;
 	String Wife_Last;
 	String Wife_Date_Of_Birth;
-	int Wife_Age;
+	String Wife_Age;
 	String Wife_Place_Of_Birth;
-    char Wife_Sex;
+    String Wife_Sex;
 	String Wife_Citizenship;
 	String Wife_Provice;
 	String Wife_City;
@@ -27,9 +27,9 @@ public class MarriageCertificate{
 	String Husband_Middle;
 	String Husband_Last;
 	String Husband_Date_Of_Birth;
-	int Husband_Age;
+	String Husband_Age;
 	String Husband_Place_Of_Birth;
-	char Husband_Sex;
+	String Husband_Sex;
 	String Husband_Citizenship;
 	String Husband_Provice;
 	String Husband_City;
@@ -56,13 +56,13 @@ public class MarriageCertificate{
 	public void setWifeDateOfBirth(String dateofbirth){
 		Wife_Date_Of_Birth = dateofbirth;
 	}
-	public void setWifeAge(int wifeage){
+	public void setWifeAge(String wifeage){
 		Wife_Age = wifeage;
 	}
 	public void setWifePlaceOfBirth(String wifeplaceofbirth){
 		Wife_Place_Of_Birth = wifeplaceofbirth;
 	}
-	public void setWifeSex(char wifesex){
+	public void setWifeSex(String wifesex){
 		Wife_Sex = wifesex;
 	}
 	public void setWifeCitezenship(String wifecitizenship){
@@ -114,13 +114,13 @@ public class MarriageCertificate{
 	public String getWifeDateOfBirth(){
 		return Wife_Date_Of_Birth;
 	}
-	public int getWifeAge(){
+	public String getWifeAge(){
 		return Wife_Age;
 	}
 	public String getWifePlaceOfBirth(){
 		return Wife_Place_Of_Birth;
 	}
-	public char getWifeSex(){
+	public String getWifeSex(){
 		return Wife_Sex;
 	}
 	public String getWifeCitzen(){
@@ -171,13 +171,13 @@ public class MarriageCertificate{
 	public void setHusbandDateOfBirth(String husbandDateOfBirth){
 		Husband_Date_Of_Birth = husbandDateOfBirth;
 	}
-	public void setHusbandAge(int husbandAge){
+	public void setHusbandAge(String husbandAge){
 		Husband_Age = husbandAge;
 	}
 	public void setHusbandPlaceOfBirth(String husbandPlaceOfBirth){
 		Husband_Place_Of_Birth = husbandPlaceOfBirth;
 	}
-	public void setHusbandSex(char husbandSex){
+	public void setHusbandSex(String husbandSex){
 		Husband_Sex = husbandSex;
 	}
 	public void setHusbandCitizen(String husbadCitizen){
@@ -227,13 +227,13 @@ public class MarriageCertificate{
 	public String getHusbandDateOfBirth(){
 		return Husband_Date_Of_Birth;
 	}
-	public int getHusbandAge(){
+	public String getHusbandAge(){
 		return Husband_Age;
 	}
 	public String getHusbandPlaceOfBirth(){
 		return Husband_Place_Of_Birth;
 	}
-	public char getHusbandSex(){
+	public String getHusbandSex(){
 		return Husband_Sex;
 	}
 	public String getHusbandCitizen(){
