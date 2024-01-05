@@ -22,9 +22,18 @@ public class MarriageCertificateProgram {
 
         // Display the updated information
         displayMarriageCertificates(wifeCertificate, husbandCertificate);
-
+        MarriagePrintedForm();
         scanner.close();
     }
+
+    private static void MarriagePrintedForm(){
+        System.out.println("\t________________________________________________________________________________________________________________________________________________________________");
+        System.out.println("\tMunicipal Form No. 97 (Form No. 13)                                            (to be accomplished in quadruplicate)        |            REMARKS/ANNOTATION           ");
+        System.out.println("\t(Revised January 1993)                                                                                                      |                                         ");
+        System.out.println("\t\t\t\t\t\t\t\t\t\t\tRepublic of the Philippines                                                            |                                         ");
+        System.out.println("\t\t\t\t\t\t\t\t\t\t   OFFICE OF THE CIVIL REGISTRAR GENERAL                                                   |                                                ");
+        System.out.println("\t________________________________________________________________________________________________________________________________________________________________");
+    }       
 
     private static MarriageCertificate inputMarriageCertificateInformation(Scanner scanner, String personType) {
         MarriageCertificate certificate = new MarriageCertificate();
