@@ -227,7 +227,7 @@ public class Government_Agency{
         // Display the updated information
         displayMarriageCertificates(wifeCertificate, husbandCertificate);
         //MarriagePrintedForm();
-        scanner.close();
+        //scanner.close();
 
                 }
                 else if(ResPurp == 3){
