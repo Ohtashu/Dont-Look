@@ -2,36 +2,16 @@ package marriage;
 import java.util.Scanner;
 
 public class MarriageCertificateProgram {
+    
+        
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        // Wife's Information
-        System.out.println("WIFE'S INFORMATION");
-        MarriageCertificate wifeCertificate = inputMarriageCertificateInformation(scanner, "Wife");
-
-        // Husband's Information
-        System.out.println("\nHUSBAND'S INFORMATION");
-        MarriageCertificate husbandCertificate = inputMarriageCertificateInformation(scanner, "Husband");
-
-        // Display the information
-        displayMarriageCertificates(wifeCertificate, husbandCertificate);
-
-        // Edit specific line
-        editSpecificLine(scanner, wifeCertificate, husbandCertificate);
-
-        // Display the updated information
-        displayMarriageCertificates(wifeCertificate, husbandCertificate);
-        MarriagePrintedForm();
-        scanner.close();
-    }
 
     private static void MarriagePrintedForm(){
         System.out.println("\t________________________________________________________________________________________________________________________________________________________________");
         System.out.println("\tMunicipal Form No. 97 (Form No. 13)                                            (to be accomplished in quadruplicate)        |            REMARKS/ANNOTATION           ");
         System.out.println("\t(Revised January 1993)                                                                                                      |                                         ");
-        System.out.println("\t\t\t\t\t\t\t\t\t\t\tRepublic of the Philippines                                                            |                                         ");
-        System.out.println("\t\t\t\t\t\t\t\t\t\t   OFFICE OF THE CIVIL REGISTRAR GENERAL                                                   |                                                ");
+        System.out.println("\t\t\t\t\t\t\t\t\t\t\tRepublic of the Philippines                 |                                         ");
+        System.out.println("\t\t\t\t\t\t\t\t\t\t   OFFICE OF THE CIVIL REGISTRAR GENERAL            |                                                ");
         System.out.println("\t________________________________________________________________________________________________________________________________________________________________");
     }       
 
