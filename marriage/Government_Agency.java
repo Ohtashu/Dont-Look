@@ -365,7 +365,9 @@ public class Government_Agency{
             
                 System.out.print("\t\t\t\t\tDo you wish to continue?"
                                    + "\n\t\t\t\t\t[1] New Transaction"
-                                   + "\n\t\t\t\t\t[2] Exit Program");
+                                   + "\n\t\t\t\t\t[2] Exit Program"
+                                   + "\n\t\t\t\t\tInput: ");
+
                 New = scn.nextInt(); 
                 
                 break;
