@@ -5,7 +5,6 @@ import java.util.*;
 public class Government_Agency{
     
     static deathCertificate dc = new deathCertificate();
-	
 	static int ContinueOrEdit;
     
     
