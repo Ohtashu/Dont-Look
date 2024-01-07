@@ -2,7 +2,11 @@
 package marriage;
 
 import java.util.*;
-public class Birth {
+
+public class Birth extends Exception {
+    
+    private static boolean Validity;
+    public static Map ques = new HashMap();
     //Mother
     private static String MFname;
     private static String MMname;
@@ -273,221 +277,272 @@ public class Birth {
     
     
     public void Question(){
-        Scanner scn = new Scanner(System.in);
         
-                   System.out.println("----------------------------------------------------------");
-                   System.out.println("\t\tChild Information");
-                   System.out.println("----------------------------------------------------------");
+                   Scanner scn = new Scanner(System.in);
+        
+                   System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+                   System.out.println("\t\t\t\t\t\t\t\t\t\tChild information");
+                   System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
                    
-                   System.out.println("\t\tBirth Resgistration");
-                   System.out.print("1A. Child First Name: ");
-                   Fname = scn.nextLine();
+                   System.out.println("\t\t\t\t\t\t\t\t\t\tBirth Resgistration");
+                   System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+
+                   System.out.print("\t\t\t\t1A. Child First Name: ");
+                   Fname = scn.nextLine().toUpperCase();
                    setFname(Fname);
                    
-                   System.out.print("2A. Child Middle Name (Enter NA if does'nt have one): ");
+                   System.out.print("\t\t\t\t2A. Child Middle Name (Enter NA if does'nt have one): ");
                    Mname = scn.next();
                    setMname(Mname);
                    
-                   System.out.print("3A. Child Last Name: ");
-                   Lname = scn.next();
+                   System.out.print("\t\t\t\t3A. Child Last Name: ");
+                   Lname = scn.next().toUpperCase();
                    setLname(Lname);
                    
-                   System.out.print("4A. Child Suffix (NA if not have): ");
-                   suff = scn.next();
+                   System.out.print("\t\t\t\t4A. Child Suffix (NA if not have): ");
+                   suff = scn.next().toUpperCase();
                    setSuff(suff);
                    
-                   System.out.print("5A. Child Age: ");
+                   System.out.print("\t\t\t\t5A. Child Age: ");
                    Age = scn.nextInt();
                    setAge(Age);
                    
-                   System.out.print("6A. Child Birthday(MM/DD/YYYY): ");
+                   System.out.print("\t\t\t\t6A. Child Birthday(MM/DD/YYYY): ");
                    BD = scn.next();
                    setBD(BD);
                    
-                   System.out.print("7A. Child Sex(f/m): ");
+                   System.out.print("\t\t\t\t7A. Child Sex(f/m): ");
                    gen = scn.next().toUpperCase().charAt(0);
                    setgen(gen);
                    
-                   System.out.print("8A. Child Place of Bitht(Province): ");
-                   Provi = scn.next();
+                   System.out.print("\t\t\t\t8A. Child Place of Bitht(Province): ");
+                   Provi = scn.next().toUpperCase();
                    setprovi(Provi);
                    
-                   System.out.print("9A. Child Place of Birth (City/Municipality): " );
-                   City = scn.next();
+                   System.out.print("\t\t\t\t9A. Child Place of Birth (City/Municipality): " );
+                   City = scn.next().toUpperCase();
                    setCity(City);
                    
-                   System.out.print("10A. Child Place of Birth(Hospital/Clinic/Institution): ");
+                   System.out.print("\t\t\t\t10A. Child Place of Birth(Hospital/Clinic/Institution): ");
                    scn.nextLine();
-                   Hos = scn.nextLine();
+                   Hos = scn.nextLine().toUpperCase();
                    setHos(Hos);
                    
-                   System.out.print("11A. Type of Birth(Single/Twin/Triplet/etc.): ");
-                   TB = scn.next();
+                   System.out.print("\t\t\t\t11A. Type of Birth(Single/Twin/Triplet/etc.): ");
+                   TB = scn.next().toUpperCase();
                    setTB(TB);
                    
                    if(!TB.equalsIgnoreCase("Single")){
                        
-                   System.out.print("12A. if multiple birth, child was (first/second/third/fourth/etc.): ");
-                   TBP = scn.next();
+                   System.out.print("\t\t\t\t12A. if multiple birth, child was (first/second/third/fourth/etc.): ");
+                   TBP = scn.next().toUpperCase();
                    setTBP(TBP);
                    
                    }
                    
-                   System.out.print("13A. Child Weight At Birth: ");
+                   System.out.print("\t\t\t\t13A. Child Weight At Birth: ");
                    weigh = scn.nextInt(); 
                    setweigh(weigh);
                    
                    //Mothers Info
-                   System.out.println("----------------------------------------------------------");
-                   System.out.println("\t\tMother information");
-                   System.out.println("----------------------------------------------------------");
-                    
-                   System.out.print("1M. Mother First Name: ");
+                  System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+                   System.out.println("\t\t\t\t\t\t\t\t\t\tMother information");
+                   System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+                   
+                   System.out.print("\t\t\t\t1M. Mother First Name: ");
                    scn.nextLine();
-                   MFname = scn.nextLine();
+                   MFname = scn.nextLine().toUpperCase();
                    setMFname(MFname);
                    
                                      
-                   System.out.print("2M. Mother Middle Name: ");
-                   MMname = scn.nextLine(); 
+                   System.out.print("\t\t\t\t2M. Mother Middle Name: ");
+                   MMname = scn.nextLine().toUpperCase(); 
                    setMMname(MMname);
                    
-                   System.out.print("3M. Mother Last Name: ");
-                   MLname = scn.nextLine();
+                   System.out.print("\t\t\t\t3M. Mother Last Name: ");
+                   MLname = scn.nextLine().toUpperCase();
                    setMLname(MLname);
                    
-                   System.out.print("4M. Mother Citizenship: ");
-                   MCiten = scn.next();
+                   System.out.print("\t\t\t\t4M. Mother Citizenship: ");
+                   MCiten = scn.next().toUpperCase();
                    setMCite(MCiten);
                    
-                   System.out.print("5M. Mother Religion: ");
-                   MReligion = scn.next();
+                   System.out.print("\t\t\t\t5M. Mother Religion: ");
+                   scn.nextLine();
+                   MReligion = scn.nextLine().toUpperCase();
                    setMReligion(MReligion);
                    
-                   System.out.print("6M. Mother Occupation: ");
-                   scn.nextLine();
-                   Mocc = scn.nextLine(); 
+                   System.out.print("\t\t\t\t6M. Mother Occupation: ");
+                   Mocc = scn.nextLine().toUpperCase(); 
                    setMoc(Mocc);
                    
                    
-                   System.out.print("7M. Mother Age at time of this birth: ");
+                   System.out.print("\t\t\t\t7M. Mother Age at time of this birth: ");
                    Mage = scn.nextInt();
                    setMage(Mage);
                    
-                   System.out.print("8M. Residence(House Number/Steet, Barangay): ");
+                   System.out.print("\t\t\t\t8M. Residence(House Number/Steet, Barangay): ");
                    scn.nextLine();
-                   MHos = scn.nextLine();
+                   MHos = scn.nextLine().toUpperCase();
                    setMHos(MHos);
                    
-                   System.out.print("9M. Residence Munipality: ");
-                   MCity = scn.nextLine();
+                   System.out.print("\t\t\t\t9M. Residence Munipality: ");
+                   MCity = scn.nextLine().toUpperCase();
                    setMCity(MCity);
                    
-                   System.out.print("10M. Province: ");
-                   Mprovi = scn.nextLine();
+                   System.out.print("\t\t\t\t10M. Province: ");
+                   Mprovi = scn.nextLine().toUpperCase();
                    setMprovi(Mprovi);
                   
                   // Father Info
                   
-                   System.out.println("----------------------------------------------------------");
-                   System.out.println("\t\tFather information");
-                   System.out.println("----------------------------------------------------------");
-                    
-                   System.out.print("1F. Father First Name: ");
-                   FFname = scn.nextLine();
+                   System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+                   System.out.println("\t\t\t\t\t\t\t\t\t\tFather Information");
+                   System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+                   
+                   System.out.print("\t\t\t\t1F. Father First Name: ");
+                   FFname = scn.nextLine().toUpperCase();
                    setFFname(FFname);
                    
-                   System.out.print("2F. Father Middle Name: ");
+                   System.out.print("\t\t\t\t2F. Father Middle Name: ");
                    FMname = scn.nextLine(); 
                    setFMname(FMname);
                    
-                   System.out.print("3F. Father Last Name: ");
-                   FLname = scn.nextLine();
+                   System.out.print("\t\t\t\t3F. Father Last Name: ");
+                   FLname = scn.nextLine().toUpperCase();
                    setFLname(FLname);
 
-                   System.out.print("4F. Father Citizenship: ");
-                   FCiten = scn.next();
+                   System.out.print("\t\t\t\t4F. Father Citizenship: ");
+                   FCiten = scn.next().toUpperCase();
                    setFCite(FCiten);
                    
-                   System.out.print("5F. Father Religion: ");
-                   FReligion = scn.next();
+                   System.out.print("\t\t\t\t5F. Father Religion: ");
+                   scn.nextLine();
+                   FReligion = scn.nextLine().toUpperCase();
                    setFReligion(FReligion);
                    
-                   System.out.print("6F. Father Occupation: ");
-                   scn.nextLine();
-                   Focc = scn.nextLine();
+                   System.out.print("\t\t\t\t6F. Father Occupation: ");
+                   Focc = scn.nextLine().toUpperCase();
                    setFocc(Focc);
                                       
-                   System.out.print("7F. Father Age at time of this birth: ");
+                   System.out.print("\t\t\t\t7F. Father Age at time of this birth: ");
                    Fage = scn.nextInt();
                    setFage(Fage);
                    
-                   System.out.print("8F. Residence(House Number/Steet, Barangay): ");
+                   System.out.print("\t\t\t\t8F. Residence(House Number/Steet, Barangay): ");
                    scn.nextLine();
-                   FHos = scn.nextLine();
+                   FHos = scn.nextLine().toUpperCase();
                    setFHos(FHos);
                    
-                   System.out.print("9F. Residence Munipality: ");
-                   FCity = scn.nextLine();
+                   System.out.print("\t\t\t\t9F. Residence Munipality: ");
+                   FCity = scn.nextLine().toUpperCase();
                    setFCity(FCity);
                    
-                   System.out.print("10F. Province: ");
-                   Fprovi = scn.nextLine();
+                   System.out.print("\t\t\t\t10F. Province: ");
+                   Fprovi = scn.nextLine().toUpperCase();
                    setFprovi(Fprovi);
+                   
+                   if(Validity == true){
+                       
+                   System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+                   System.out.println("\t\t\t\t\t\t\t\t\t\tInvalid Inputs");
+                   System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+                   
+                    
+                   }
+                   
     }
     public static void Display(){
-         System.out.println("----------------------------------------------------------");
-                   System.out.println("\t\tChild Information");
-                   System.out.println("----------------------------------------------------------");
+        
+                   System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+                   System.out.println("\t\t\t\t\t\t\t\t\t\tChild Information");
+                   System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
                    
-                   System.out.println("\t\tBirth Resgistration");
-                   System.out.println("1A. Child First Name: " +Fname);
-                   System.out.println("2A. Child Middle Name (Enter NA if does'nt have one): " + Mname);
-                   System.out.println("3A. Child Last Name: " + Lname);
-                   System.out.println("4A. Child Suffix (NA if not have): " + suff);
-                   System.out.println("5A. Child Age: " + Age);
-                   System.out.println("6A. Child Birthday(MM/DD/YYYY): " + BD);
-                   System.out.println("7A. Child Sex(f/m): " + gen);
-                   System.out.println("8A. Child Place of Bitht(Province): " + Provi);
-                   System.out.println("9A. Child Place of Birth (City/Municipality): " + City );
-                   System.out.println("10A. Child Place of Birth(Hospital/Clinic/Institution): " + Hos);
-                   System.out.println("11A. Type of Birth(Single/Twin/Triplet/etc.): " + TB);
+                   System.out.println(" ");
+                   System.out.println("\t\t\t\t1A. Child First Name: " +Fname);
+                   System.out.println("\t\t\t\t2A. Child Middle Name (Enter NA if does'nt have one): " + Mname);
+                   System.out.println("\t\t\t\t3A. Child Last Name: " + Lname);
+                   System.out.println("\t\t\t\t4A. Child Suffix (NA if not have): " + suff);
+                   System.out.println("\t\t\t\t5A. Child Age: " + Age);
+                   System.out.println("\t\t\t\t6A. Child Birthday(MM/DD/YYYY): " + BD);
+                   System.out.println("\t\t\t\t7A. Child Sex(f/m): " + gen);
+                   System.out.println("\t\t\t\t8A. Child Place of Bitht(Province): " + Provi);
+                   System.out.println("\t\t\t\t9A. Child Place of Birth (City/Municipality): " + City );
+                   System.out.println("\t\t\t\t10A. Child Place of Birth(Hospital/Clinic/Institution): " + Hos);
+                   System.out.println("\t\t\t\t11A. Type of Birth(Single/Twin/Triplet/etc.): " + TB);
                    if(!TB.equalsIgnoreCase("Single")){    
-                   System.out.println("12A. if multiple birth, child was (first/second/third/fourth/etc.): " + TBP);
+                   System.out.println("\t\t\t\t12A. if multiple birth, child was (first/second/third/fourth/etc.): " + TBP);
                    }
-                   System.out.println("13A. Child Weight At Birth: " + weigh);
+                   System.out.println("\t\t\t\t13A. Child Weight At Birth: " + weigh);
                    
                    //Mothers Info
-                   System.out.println("----------------------------------------------------------");
-                   System.out.println("\t\tMother information");
-                   System.out.println("----------------------------------------------------------");
-                   System.out.println("1M. Mother First Name: " + MFname);                
-                   System.out.println("2M. Mother Middle Name: " + MMname);
-                   System.out.println("3M. Mother Last Name: " + MLname);
-                   System.out.println("4M. Mother Citizenship: " + MCiten);
-                   System.out.println("5M. Mother Religion: " + MReligion);
-                   System.out.println("6M. Mother Occupation: " + Mocc);
-                   System.out.println("7M. Mother Age at time of this birth: " + Mage);
-                   System.out.println("8M. Residence(House Number/Steet, Barangay): " + MHos);
-                   System.out.println("9M. Residence Munipality: " + MCity);
-                   System.out.println("10M. Province: " + Mprovi);
+                   System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+                   System.out.println("\t\t\t\t\t\t\t\t\t\tMother information");
+                   System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+                   
+                   System.out.println("\t\t\t\t1M. Mother First Name: " + MFname);                
+                   System.out.println("\t\t\t\t2M. Mother Middle Name: " + MMname);
+                   System.out.println("\t\t\t\t3M. Mother Last Name: " + MLname);
+                   System.out.println("\t\t\t\t4M. Mother Citizenship: " + MCiten);
+                   System.out.println("\t\t\t\t5M. Mother Religion: " + MReligion);
+                   System.out.println("\t\t\t\t6M. Mother Occupation: " + Mocc);
+                   System.out.println("\t\t\t\t7M. Mother Age at time of this birth: " + Mage);
+                   System.out.println("\t\t\t\t8M. Residence(House Number/Steet, Barangay): " + MHos);
+                   System.out.println("\t\t\t\t9M. Residence Munipality: " + MCity);
+                   System.out.println("\t\t\t\t10M. Province: " + Mprovi);
                   
-                   System.out.println("----------------------------------------------------------");
-                   System.out.println("\t\tFather information");
-                   System.out.println("----------------------------------------------------------");                
-                   System.out.println("1F. Father First Name: " + FFname);                  
-                   System.out.println("2F. Father Middle Name: " + FMname);
-                   System.out.println("3F. Father Last Name: " + FLname);
-                   System.out.println("4F. Father Citizenship: " + FCiten);
-                   System.out.println("5F. Father Religion: " + FReligion);
-                   System.out.println("6F. Father Occupation: " + Focc);
-                   System.out.println("7F. Father Age at time of this birth: " + Fage);
-                   System.out.println("8F. Residence(House Number/Steet, Barangay): " + FHos);
-                   System.out.println("9F. Residence Munipality: " + FCity);
-                   System.out.println("10F. Province: " + Fprovi);
+                   System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+                   System.out.println("\t\t\t\t\t\t\t\t\t\tFather information");
+                   System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
                    
-                   
+                   System.out.println("\t\t\t\t1F. Father First Name: " + FFname);                  
+                   System.out.println("\t\t\t\t2F. Father Middle Name: " + FMname);
+                   System.out.println("\t\t\t\t3F. Father Last Name: " + FLname);
+                   System.out.println("\t\t\t\t4F. Father Citizenship: " + FCiten);
+                   System.out.println("\t\t\t\t5F. Father Religion: " + FReligion);
+                   System.out.println("\t\t\t\t6F. Father Occupation: " + Focc);
+                   System.out.println("\t\t\t\t7F. Father Age at time of this birth: " + Fage);
+                   System.out.println("\t\t\t\t8F. Residence(House Number/Steet, Barangay): " + FHos);
+                   System.out.println("\t\t\t\t9F. Residence Munipality: " + FCity);
+                   System.out.println("\t\t\t\t10F. Province: " + Fprovi);               
              
+    }
+    public void HQuestion(){
+        ques.put("1A", "Child First Name:");
+        ques.put("2A", "Child Middle Name (Enter NA if does'nt have one):");
+        ques.put("3A" , "Child Last Name:");
+        ques.put("4A", "Child Suffix (NA if not have): ");
+        ques.put("5A" , "Child Age: ");
+        ques.put("6A" , "Child Birthday(MM/DD/YYYY): ");
+        ques.put("7A", "Child Sex(f/m): ");
+        ques.put("8A", "Child Place of Birth(Province): ");
+        ques.put("9A", "Child Place of Birth(City/Municipality): ");
+        ques.put("10A","Child Place of Birth(Hospital/Clinic/Institution):");
+        ques.put("11A","Child Type of Birth(Single/Twin/Triplet/etc): ");
+        ques.put("12A","Child If multiple birth, child was(first/second/third/fourth/etc.): ");
+        ques.put("13A","Child Weight at Birth: ");
+        
+        ques.put("1M","Mother First name: ");
+        ques.put("2M","Mother Middle name: ");
+        ques.put("3M","Mother Last name: ");
+        ques.put("4M","Mother Citizenship: ");
+        ques.put("5M","Mother Religion: ");
+        ques.put("6M","Mother Occupation: ");
+        ques.put("7M","Mother Age at time of this birth: ");
+        ques.put("8M","Mother Residence(House Number/Street, Barangay): ");
+        ques.put("9M","Mother Residence Municipality: ");
+        ques.put("10M","Mother Province: ");
+
+        ques.put("1F","Father First name: ");
+        ques.put("2F","Father Middle name: ");
+        ques.put("3F","Father Last name: ");
+        ques.put("4F","Father Citizenship: ");
+        ques.put("5F","Father Religion: ");
+        ques.put("6F","Father Occupation: ");
+        ques.put("7F","Father Age at time of this birth: ");
+        ques.put("8F","Father Residence(House Number/Street, Barangay): ");
+        ques.put("9F","Father Residence Municipality: ");
+        ques.put("10F","Father Province: ");
     }
 }  
     
