@@ -2,7 +2,7 @@ package marriage;
 
 import java.util.Scanner;
 
-public class DeathCertificate {
+public class DeathCertificate{
 	private static String firstName;
 	private static String middleName;
 	private static String lastName;

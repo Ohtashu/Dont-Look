@@ -1,11 +1,10 @@
-
 package marriage;
 import java.util.*;
 
 
 public class Birth_Storage extends Birth {
   
-    public LinkedHashMap <String , Object>BStore  = new LinkedHashMap();
+    public LinkedHashMap <String , String>BStore  = new LinkedHashMap();
     public static Queue <String> BS = new LinkedList();
     private String Name;
 

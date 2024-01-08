@@ -12,7 +12,7 @@ public class Birth extends Exception {
     private static String MMname;
     private static String MLname;
     private static String Mocc;
-    private static int Mage;
+    private static String Mage;
     private static String MCiten;
     private static String MReligion;
     private static String Mprovi;
@@ -24,7 +24,7 @@ public class Birth extends Exception {
     private static String FMname;
     private static String FLname;
     private static String Focc;
-    private static int Fage;
+    private static String Fage;
     private static String FCiten;
     private static String FReligion;
     private static String Fprovi;
@@ -35,18 +35,18 @@ public class Birth extends Exception {
     private static String Fname;//
     private static String Lname;//
     private static String Mname;//
-    private static int Age;//
+    private static String Age;//
     private static String BP;//
     private static String suff;//
     private static String BG;//
     private static String BD;//
-    private static char gen;//
+    private static String gen;//
     private static String City;//
     private static String Provi;
     private static String Hos;//
     private static String TB;//
     private static String TBP;//
-    private static int weigh;
+    private static String weigh;
     
     //child setter & getter
     //setter
@@ -59,7 +59,7 @@ public class Birth extends Exception {
     public void setMname(String Mname){
         this.Mname = Mname;
     }
-    public void setAge(int Age){
+    public void setAge(String Age){
         this.Age = Age;
     }
     public void setBP(String BP){
@@ -77,7 +77,7 @@ public class Birth extends Exception {
     public void setBD(String BD){
         this.BD = BD;
     } 
-    public void setgen(char gen){
+    public void setgen(String gen){
         this.gen = gen;
     }
     public void setCity(String City){
@@ -86,7 +86,7 @@ public class Birth extends Exception {
     public void setTBP(String TBP){
         this.TBP = TBP;
     }
-    public void setweigh(int weigh){
+    public void setweigh(String weigh){
         this.weigh = weigh;
     }
     public void setprovi(String provi){
@@ -108,7 +108,7 @@ public class Birth extends Exception {
      public String getMname(){
         return this.Mname;
     }
-    public int getAge(){
+    public String  getAge(){
         return this.Age;
     }
      public String getBP(){
@@ -126,7 +126,7 @@ public class Birth extends Exception {
     public String getBD(){
         return this.BD;
     }
-    public char getgen(){
+    public String getgen(){
         return this.gen;
     }
     public String getCity(){
@@ -135,7 +135,7 @@ public class Birth extends Exception {
     public String getTBP(){
         return this.TBP;
     }
-    public int getweigh(){
+    public String getweigh(){
         return this.weigh;
     }
      public String getprovi(){
@@ -165,7 +165,7 @@ public class Birth extends Exception {
     public void setMoc(String Mocc){
          this.Mocc = Mocc;
      }
-    public void setMage(int Mage){
+    public void setMage(String Mage){
         this.Mage = Mage;
     }
     public void setMCity(String MCity){
@@ -197,7 +197,7 @@ public class Birth extends Exception {
     public String getMocc(){
          return this.Mocc;
      }
-    public int getMage(){
+    public String getMage(){
         return this.Mage;
     }
     public String getMCity(){
@@ -230,7 +230,7 @@ public class Birth extends Exception {
     public void setFocc(String Focc){
          this.Focc = Focc;
      }
-    public void setFage(int Fage){
+    public void setFage(String Fage){
         this.Fage = Fage;
     }
     public void setFCity(String FCity){
@@ -262,7 +262,7 @@ public class Birth extends Exception {
     public String getFocc(){
          return this.Focc;
      }
-    public int getFage(){
+    public String getFage(){
         return this.Fage;
     }
     public String getFCity(){
@@ -304,7 +304,7 @@ public class Birth extends Exception {
                    setSuff(suff);
                    
                    System.out.print("\t\t\t\t5A. Child Age: ");
-                   Age = scn.nextInt();
+                   Age = scn.nextLine();
                    setAge(Age);
                    
                    System.out.print("\t\t\t\t6A. Child Birthday(MM/DD/YYYY): ");
@@ -312,7 +312,7 @@ public class Birth extends Exception {
                    setBD(BD);
                    
                    System.out.print("\t\t\t\t7A. Child Sex(f/m): ");
-                   gen = scn.next().toUpperCase().charAt(0);
+                   gen = scn.next().toUpperCase();
                    setgen(gen);
                    
                    System.out.print("\t\t\t\t8A. Child Place of Bitht(Province): ");
@@ -341,7 +341,7 @@ public class Birth extends Exception {
                    }
                    
                    System.out.print("\t\t\t\t13A. Child Weight At Birth: ");
-                   weigh = scn.nextInt(); 
+                   weigh = scn.nextLine(); 
                    setweigh(weigh);
                    
                    //Mothers Info
@@ -378,7 +378,7 @@ public class Birth extends Exception {
                    
                    
                    System.out.print("\t\t\t\t7M. Mother Age at time of this birth: ");
-                   Mage = scn.nextInt();
+                   Mage = scn.nextLine();
                    setMage(Mage);
                    
                    System.out.print("\t\t\t\t8M. Residence(House Number/Steet, Barangay): ");
@@ -426,7 +426,7 @@ public class Birth extends Exception {
                    setFocc(Focc);
                                       
                    System.out.print("\t\t\t\t7F. Father Age at time of this birth: ");
-                   Fage = scn.nextInt();
+                   Fage = scn.nextLine();
                    setFage(Fage);
                    
                    System.out.print("\t\t\t\t8F. Residence(House Number/Steet, Barangay): ");

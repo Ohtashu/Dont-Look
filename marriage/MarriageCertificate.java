@@ -2,7 +2,7 @@ package marriage;
 import java.util.*;
 public class MarriageCertificate{
 	String PersonName, Addresses;
-        Map ques = new HashMap();
+    private static Map ques = new HashMap();
      String contact_Number;
      String correctionDetail;
      double copy, price, amount, change = 1;
@@ -296,8 +296,8 @@ public class MarriageCertificate{
 
 
 	    // Input Marriage Area
-	    void inputMarriageCertificate() {
-
+	    public void inputMarriageCertificate() {
+            MarriageQuestion();
 	        Scanner scanner = new Scanner(System.in);
 	        // Wife information input
 	        System.out.println("\n\tWife Information");
@@ -513,34 +513,27 @@ public class MarriageCertificate{
 	    }
 	     
 	    //Editing Area
-		void editCertificateInformation() {
-			Scanner scanner = new Scanner(System.in);
-			System.out.print("\tEnter the line number you want to edit: ");
-			String lineNumber = scanner.nextLine().trim().toLowerCase(); // Convert to uppercase
 		
-			// Debugging print statements
-			System.out.println("Debug - Input line number: '" + lineNumber + "'");
-			System.out.println("Debug - Map keys: " + ques.keySet());
-			System.out.println("Debug - Map entries: " + ques);
+			
 		
-			if (ques.containsKey(lineNumber)) {
-				System.out.println(ques.get(lineNumber));
-				System.out.print("\tEnter the new value: ");
-				String newValue = scanner.nextLine();
-		
-				setValuesBasedOnLineNumber(lineNumber, newValue);
-			} else {
-				System.out.println("\tInvalid line number.");
-			}
-		}
 		
 		
 		
 		
 		
 			
+        //Marriage Certificate Editor Part
+	    void editCertificateInformation() {
 
-	    void setValuesBasedOnLineNumber(String lineNumber, String newValue) {
+			Scanner scanner = new Scanner(System.in);
+			System.out.print("\tEnter the line number you want to edit: ");
+			String lineNumber = scanner.nextLine().toLowerCase();
+				
+			
+			System.out.println(ques.get(lineNumber));
+			System.out.print("\tEnter the new value: ");
+			String newValue = scanner.nextLine();
+
 	        switch(lineNumber) {
 	            case "1a":    
 	                setWifeName(newValue);
@@ -932,7 +925,7 @@ public void receipt(){
 }
 public void MarriageQuestion(){
     
-    ques.put("1A", "First Name:");
+    ques.put("1a", "First Name:");
     ques.put("1b","Middle Name:" );
     ques.put("1c","Last Name: ");
     ques.put("2","Date of Birth(MM/DD/YYYY)");

@@ -4,12 +4,12 @@ package marriage;
 import java.util.*;
 import java.io.IOException;
 
-public class Government_Agency{
+public class Government_Agency {
 
     static DeathCertificate dc = new DeathCertificate(); //For death insta
     static StorageDeath STD = new StorageDeath();
     static int ContinueOrEdit;
-    
+    static Admin admin = new Admin();
     static Birth B = new Birth();
     static Birth_Storage BStore = new Birth_Storage();
     static Map ques = new HashMap();
@@ -29,7 +29,7 @@ public class Government_Agency{
     public static void main(String[] args) throws Exception, IOException{
         Scanner userInput = new Scanner(System.in);      B.HQuestion();
         ques.putAll(B.ques);
-
+       do{
         System.out.println("\t\t\t\t\t\t\t\t  ________  ____  ____  _______   __    _____  ___  \n" +
 "\t\t\t\t\t\t\t\t /\"       )(\"  _||_ \" ||   _  \"\\ |\" \\  (\\\"   \\|\"  \\  \n" +
 "\t\t\t\t\t\t\t\t(:   \\___/ |   (  ) : |(. |_)  :)||  | |.\\\\   \\    | \n" +
@@ -42,16 +42,23 @@ public class Government_Agency{
                 + "\t[1]Admin"
                 + "\t\t[2]Guest");
         System.out.print("\t: ");
+        scn.nextLine();
         String identifier = scn.nextLine();
+
         if(identifier.equals("1")){
             
+    
+            admin.AdminW();
+            BStore.BStore.clear();
+            BStore.BStore.putAll(admin.Admin_Store);
+
         }
         else if(identifier.equals("2")){
             
         }
         
         System.out.print("\n\t\t\t========================================================================================================================");
-        do{
+        
         
         System.out.println();
         System.out.print("\t\t\t------------------------------------------------------------------------------------------------------------------------"
@@ -128,13 +135,13 @@ public class Government_Agency{
                             B.setSuff(change);
                             break;
                         case "5A":
-                            B.setAge(Integer.parseInt(change));
+                            B.setAge(change);
                             break;
                         case "6A":
                             B.setBD(change);
                             break;
                         case "7A":
-                            B.setgen(change.charAt(0));
+                            B.setgen(change);
                             break;
                         case "8A":
                             B.setprovi(change);
@@ -152,7 +159,7 @@ public class Government_Agency{
                             B.setTBP(change);
                             break;
                         case "13":
-                            B.setweigh(Integer.parseInt(change));
+                            B.setweigh(change);
                             break;
                         case "1M":
                             B.setMFname(change);
@@ -173,7 +180,7 @@ public class Government_Agency{
                             B.setMoc(change);
                             break;
                         case "7M":
-                            B.setMage(Integer.parseInt(change));
+                            B.setMage(change);
                             break;
                         case "8M":
                             B.setMHos(change);
@@ -203,7 +210,7 @@ public class Government_Agency{
                             B.setFocc(change);
                             break;
                         case "7F":
-                            B.setFage(Integer.parseInt(change));
+                            B.setFage(change);
                             break;
                         case "8F":
                             B.setFHos(change);
@@ -230,6 +237,7 @@ public class Government_Agency{
                      
                      BStore.setName( B.getFname() + " " + B.getMname() + " " + B.getLname());
                      BStore.BStore();
+                     admin.Admin_Store.putAll(BStore.BStore);
                      BStore.PrintCopy();
                      PrintCopy();
 
@@ -238,7 +246,6 @@ public class Government_Agency{
                 }
                 else if(ResPurp == 2){
                   
-                    
                    process(); 
                 }
                 else if(ResPurp == 3){
@@ -454,6 +461,7 @@ public class Government_Agency{
         Scanner scanner = new Scanner(System.in);
         MarriageCertificate certificate = new MarriageCertificate();
     
+
         certificate.inputMarriageCertificate();
         certificate.displayCertificateInformation();
     
@@ -468,12 +476,10 @@ public class Government_Agency{
             // System Repeats
             boolean systemRepeater = true;
             while (systemRepeater) {
-                System.out.println("Debug - Map keys before editing loop: " + ques.keySet());
                 System.out.print("\tDo you want to Continue to Edit? [Y] Yes or [N] No: ");
                 String decision = scanner.nextLine();
     
                 if (decision.equalsIgnoreCase("Y")) {
-                    System.out.println("Debug - Map keys before editing: " + ques.keySet());
                     systemRepeater = true;
                     certificate.editCertificateInformation();
                 } else if (decision.equalsIgnoreCase("N")) {
