@@ -11,6 +11,7 @@ public class Admin extends Birth_Storage{
     private Map AdminQ = new HashMap();
     Map  <String, String> Admin_Store = new HashMap();
     Queue<String> QA = new LinkedList();
+    Queue<String> QAA = new LinkedList<>();
     
     public void AdminW(){
         HQuestion();
@@ -73,10 +74,11 @@ public class Admin extends Birth_Storage{
                         for(String a : lies){
                            if(AdminQ.containsKey(a)){
                             QA.add(a);
+                            QAA.add(a);
                         //}
                         //while(!QA.isEmpty()){
                             
-                        System.out.print(AdminQ.get(QA.poll()) + " ");
+                        System.out.print(AdminQ.get(QAA.poll()) + " ");
                         change = scn.nextLine();
                         
                       
