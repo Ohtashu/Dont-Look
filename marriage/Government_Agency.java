@@ -134,9 +134,6 @@ public class Government_Agency {
                         case "4A":
                             B.setSuff(change);
                             break;
-                        case "5A":
-                            B.setAge(change);
-                            break;
                         case "6A":
                             B.setBD(change);
                             break;

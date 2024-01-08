@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Birth extends Exception {
     
-    private static boolean Validity;
+    
     public static Map ques = new HashMap();
     //Mother
     private static String MFname;
@@ -35,7 +35,7 @@ public class Birth extends Exception {
     private static String Fname;//
     private static String Lname;//
     private static String Mname;//
-    private static String Age;//
+    //private static int Age;//
     private static String BP;//
     private static String suff;//
     private static String BG;//
@@ -59,9 +59,9 @@ public class Birth extends Exception {
     public void setMname(String Mname){
         this.Mname = Mname;
     }
-    public void setAge(String Age){
-        this.Age = Age;
-    }
+    //public void setAge(int Age){
+     //   this.Age = Age;
+    //}
     public void setBP(String BP){
         this.BP = BP;
     }
@@ -108,9 +108,9 @@ public class Birth extends Exception {
      public String getMname(){
         return this.Mname;
     }
-    public String  getAge(){
-        return this.Age;
-    }
+    //public int getAge(){
+    //    return this.Age;
+    //}
      public String getBP(){
         return this.BP;
     }
@@ -303,9 +303,9 @@ public class Birth extends Exception {
                    suff = scn.next().toUpperCase();
                    setSuff(suff);
                    
-                   System.out.print("\t\t\t\t5A. Child Age: ");
-                   Age = scn.nextLine();
-                   setAge(Age);
+                   //System.out.print("\t\t\t\t5A. Child Age: ");
+                   //Age = scn.nextInt();
+                   //setAge(Age);
                    
                    System.out.print("\t\t\t\t6A. Child Birthday(MM/DD/YYYY): ");
                    BD = scn.next();
@@ -341,7 +341,7 @@ public class Birth extends Exception {
                    }
                    
                    System.out.print("\t\t\t\t13A. Child Weight At Birth: ");
-                   weigh = scn.nextLine(); 
+                   weigh = scn.next(); 
                    setweigh(weigh);
                    
                    //Mothers Info
@@ -378,7 +378,7 @@ public class Birth extends Exception {
                    
                    
                    System.out.print("\t\t\t\t7M. Mother Age at time of this birth: ");
-                   Mage = scn.nextLine();
+                   Mage = scn.next();
                    setMage(Mage);
                    
                    System.out.print("\t\t\t\t8M. Residence(House Number/Steet, Barangay): ");
@@ -426,7 +426,7 @@ public class Birth extends Exception {
                    setFocc(Focc);
                                       
                    System.out.print("\t\t\t\t7F. Father Age at time of this birth: ");
-                   Fage = scn.nextLine();
+                   Fage = scn.next();
                    setFage(Fage);
                    
                    System.out.print("\t\t\t\t8F. Residence(House Number/Steet, Barangay): ");
@@ -442,14 +442,7 @@ public class Birth extends Exception {
                    Fprovi = scn.nextLine().toUpperCase();
                    setFprovi(Fprovi);
                    
-                   if(Validity == true){
-                       
-                   System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
-                   System.out.println("\t\t\t\t\t\t\t\t\t\tInvalid Inputs");
-                   System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
-                   
-                    
-                   }
+                
                    
     }
     public static void Display(){
@@ -463,7 +456,7 @@ public class Birth extends Exception {
                    System.out.println("\t\t\t\t2A. Child Middle Name (Enter NA if does'nt have one): " + Mname);
                    System.out.println("\t\t\t\t3A. Child Last Name: " + Lname);
                    System.out.println("\t\t\t\t4A. Child Suffix (NA if not have): " + suff);
-                   System.out.println("\t\t\t\t5A. Child Age: " + Age);
+                   //System.out.println("\t\t\t\t5A. Child Age: " + Age);
                    System.out.println("\t\t\t\t6A. Child Birthday(MM/DD/YYYY): " + BD);
                    System.out.println("\t\t\t\t7A. Child Sex(f/m): " + gen);
                    System.out.println("\t\t\t\t8A. Child Place of Bitht(Province): " + Provi);
@@ -512,7 +505,6 @@ public class Birth extends Exception {
         ques.put("2A", "Child Middle Name (Enter NA if does'nt have one):");
         ques.put("3A" , "Child Last Name:");
         ques.put("4A", "Child Suffix (NA if not have): ");
-        ques.put("5A" , "Child Age: ");
         ques.put("6A" , "Child Birthday(MM/DD/YYYY): ");
         ques.put("7A", "Child Sex(f/m): ");
         ques.put("8A", "Child Place of Birth(Province): ");
