@@ -1,13 +1,14 @@
 package marriage;
 import java.util.*;
-public class MarriageCertificate {
+public class MarriageCertificate{
 	String PersonName, Addresses;
+        Map ques = new HashMap();
      String contact_Number;
      String correctionDetail;
      double copy, price, amount, change = 1;
      String Number_Contact_Both;
      int pickup;
-	
+     
 
 	
 	//Wife Documents Info
@@ -17,7 +18,7 @@ public class MarriageCertificate {
 		String Wife_Date_Of_Birth;
 		String Wife_Age;
 		String Wife_Place_Of_Birth;
-	    String Wife_Sex;
+	        String Wife_Sex;
 		String Wife_Citizenship;
 		String Wife_Provice;
 		String Wife_City;
@@ -462,7 +463,7 @@ public class MarriageCertificate {
 
 	    // Display Area
 	    void displayCertificateInformation(){
-	        System.out.println("\t_______________________________________________________________________________________________________");
+                System.out.println("\t------------------------------------------------------------------------------------------------------------------------");
 	        System.out.println("\n\tWIFE'S INFORMATION");
 	        System.out.println("\t1a. First Name: " + getWifeFirst());
 	        System.out.println("\t1b. Middle Name: " + getWifeMiddle());
@@ -474,7 +475,7 @@ public class MarriageCertificate {
 	        System.out.println("\t6. Citizenship: " + getWifeCitzen());
 	        System.out.println("\t7a. Residence (Province): " + getWifeProvince());
 	        System.out.println("\t7b. Residence (City/Municipality): " + getWifeCity());
-	        System.out.println("\t7c. Residence (Barangay): " + getWifeBarangay());
+	        System.out.println("\t7c. Residence (Baranggay): " + getWifeBarangay());
 	        System.out.println("\t7d. Residence (House Number/Street): " + getWifeStreet());
 	        System.out.println("\t8. Religion: " + getWifeReligion());
 	        System.out.println("\t9. Civil status: " + getWifeStatus());
@@ -482,27 +483,27 @@ public class MarriageCertificate {
 	        System.out.println("\t11. Citizenship of Father: " + getWifeFatherCitizen());
 	        System.out.println("\t12. Full name of Mother: " + getWifeMother());
 	        System.out.println("\t13. Citizenship of Mother: " + getWifeMotherCitizen());
-	        System.out.println("\t_______________________________________________________________________________________________________");
+                System.out.println("\t------------------------------------------------------------------------------------------------------------------------");
 	        System.out.println("\n\tHUSBAND'S INFORMATION");
 	        System.out.println("\t14a. First Name: " + getHusbandFirst());
 	        System.out.println("\t14b. Middle Name: " + getHusbandMiddle());
-	        System.out.println("\t15. Last Name: " + getHusbandLast());
-	        System.out.println("\t16. Date of Birth (MM/DD/YYYY): " + getHusbandDateOfBirth());
-	        System.out.println("\t17. Age: " + getHusbandAge());
-	        System.out.println("\t18. Place of Birth (City, Province): " + getHusbandPlaceOfBirth());
-	        System.out.println("\t19. Sex(f/m): " + getHusbandSex());
-	        System.out.println("\t20. Citizenship: " + getHusbandCitizen());
-	        System.out.println("\t21d. Residence (Province): " + getHusbandProvince());
-	        System.out.println("\t21c. Residence (City/Municipality): " + getHusbandCity());
-	        System.out.println("\t21b. Residence (Barangay): " + getHusbandBarangay());
-	        System.out.println("\t21a. Residence (House Number/Street): " + getHusbandStreet());
-	        System.out.println("\t22. Religion: " + getHusbandReligion());
-	        System.out.println("\t23. Civil status: " + getHusbandStatus());
-	        System.out.println("\t24. Full name of Father: " + getHusbandFather());
-	        System.out.println("\t25. Citizenship of Father: " + getHusbandFatherCitizen());
-	        System.out.println("\t26. Full name of Mother: " + getHusbandMother());
-	        System.out.println("\t27. Citizenship of Mother: " + getHusbandMotherCitizen());
-	        System.out.println("\t_______________________________________________________________________________________________________");
+	        System.out.println("\t14c. Last Name: " + getHusbandLast());
+	        System.out.println("\t15. Date of Birth (MM/DD/YYYY): " + getHusbandDateOfBirth());
+	        System.out.println("\t16. Age: " + getHusbandAge());
+	        System.out.println("\t17. Place of Birth (City, Province): " + getHusbandPlaceOfBirth());
+	        System.out.println("\t18. Sex(f/m): " + getHusbandSex());
+	        System.out.println("\t19. Citizenship: " + getHusbandCitizen());
+	        System.out.println("\t20a. Residence (Province): " + getHusbandProvince());
+	        System.out.println("\t20b. Residence (City/Municipality): " + getHusbandCity());
+	        System.out.println("\t20c. Residence (Baranggay): " + getHusbandBarangay());
+	        System.out.println("\t20d. Residence (House Number/Street): " + getHusbandStreet());
+	        System.out.println("\t21. Religion: " + getHusbandReligion());
+	        System.out.println("\t22. Civil status: " + getHusbandStatus());
+	        System.out.println("\t23. Full name of Father: " + getHusbandFather());
+	        System.out.println("\t24. Citizenship of Father: " + getHusbandFatherCitizen());
+	        System.out.println("\t25. Full name of Mother: " + getHusbandMother());
+	        System.out.println("\t26. Citizenship of Mother: " + getHusbandMotherCitizen());
+                System.out.println("\t------------------------------------------------------------------------------------------------------------------------");
 	        System.out.println("\tPlace of Marriage" + getPlaceMarriage());
 	        System.out.println("\tDate of Marriage" + getDateMarriage());
 	        System.out.println("\tThis is to certify that I " + getWifeFirst()+" "+getWifeMiddle()+" "+getWifeLast() +" and "+ getHusbandFirst()+" "+getHusbandMiddle()+" "+getHusbandLast()
@@ -512,18 +513,36 @@ public class MarriageCertificate {
 	    }
 	     
 	    //Editing Area
-	    void editCertificateInformation() {
-	        Scanner scanner = new Scanner(System.in);
-	       
-	        System.out.print("\tEnter the line number you want to edit: ");
-	        String lineNumber = scanner.nextLine();
-	        //scanner.nextLine(); // Consume the newline character
+		void editCertificateInformation() {
+			Scanner scanner = new Scanner(System.in);
+			System.out.print("\tEnter the line number you want to edit: ");
+			String lineNumber = scanner.nextLine().trim().toLowerCase(); // Convert to uppercase
+		
+			// Debugging print statements
+			System.out.println("Debug - Input line number: '" + lineNumber + "'");
+			System.out.println("Debug - Map keys: " + ques.keySet());
+			System.out.println("Debug - Map entries: " + ques);
+		
+			if (ques.containsKey(lineNumber)) {
+				System.out.println(ques.get(lineNumber));
+				System.out.print("\tEnter the new value: ");
+				String newValue = scanner.nextLine();
+		
+				setValuesBasedOnLineNumber(lineNumber, newValue);
+			} else {
+				System.out.println("\tInvalid line number.");
+			}
+		}
+		
+		
+		
+		
+		
+			
 
-	        System.out.print("\tEnter the new value: ");
-	        String newValue = scanner.nextLine();
-
-	        switch (lineNumber) {
-	            case "1a":
+	    void setValuesBasedOnLineNumber(String lineNumber, String newValue) {
+	        switch(lineNumber) {
+	            case "1a":    
 	                setWifeName(newValue);
 	                break;
 	            case "1b":
@@ -547,16 +566,16 @@ public class MarriageCertificate {
 	            case "6":
 	                setWifeCitezenship(newValue);
 	                break;
-	            case "7d":
+	            case "7a":
 	                setWifeProvince(newValue);
 	                break;
-	            case "7c":
+	            case "7b":
 	                setWifeCity(newValue);
 	                break;
-	            case "7b":
+	            case "7c":
 	                setWifeBarangay(newValue);
 	                break;
-	            case "7a":
+	            case "7d":
 	                setWifeStreet(newValue);
 	                break;
 	            case "8":
@@ -585,52 +604,52 @@ public class MarriageCertificate {
 	            case "14b":
 	               setHusbandMiddle(newValue);
 	                break;
-	            case "15":
+	            case "14c":
 	                setHusbandLast(newValue);
 	                break;
-	            case "16":
+	            case "15":
 	                setHusbandDateOfBirth(newValue);
 	                break;
-	            case "17":
+	            case "16":
 	                setHusbandAge(newValue);
 	                break;
-	            case "18":
+	            case "17":
 	                setHusbandPlaceOfBirth(newValue);
 	                break;
-	            case "19":
+	            case "18":
 	                setHusbandSex(newValue);
 	                break;
-	            case "20":
+	            case "19":
 	                setHusbandCitizen(newValue);
 	                break;
-	            case "21d":
+	            case "20a":
 	                setHusbandProvince(newValue);
 	                break;
-	            case "21c":
+	            case "20b":
 	                setHusbandCity(newValue);
 	                break;
-	            case "21b":
+	            case "20c":
 	                setHusbandBarangay(newValue);
 	                break;
-	            case "21a":
+	            case "20d":
 	                setHusbandStreet(newValue);
 	                break;
-	            case "22":
+	            case "21":
 	                setHusbandReligion(newValue);
 	                break;
-	            case "23":
+	            case "22":
 	                setHusbandStatus(newValue);
 	                break;
-	            case "24":
+	            case "23":
 	                setHusbandFather(newValue);
 	                break;
-	            case "25":
+	            case "24":
 	                setHusbandFatherCitizen(newValue);
 	                break;
-	            case "26":
+	            case "25":
 	                setHusbandMother(newValue);
 	                break;
-	            case "27":
+	            case "26":
 	                setHusbandMotherCitizen(newValue);
 	                break;
 
@@ -842,6 +861,11 @@ public class MarriageCertificate {
 } 
 }  
 } 
+
+void LinkedHashMap(){
+	
+}
+
 public void receipt(){
     System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
     System.out.println("\t\t\t\t\t\t\t\tPrinting of receipt, Please wait a moment........");
@@ -905,6 +929,43 @@ public void receipt(){
     System.out.println("\t\t\t\t\t\t\t\t| ---------------------------------------------- |");
 
     System.out.println("\t\t\t\t\t\t\t\t==================================================");
+}
+public void MarriageQuestion(){
+    
+    ques.put("1A", "First Name:");
+    ques.put("1b","Middle Name:" );
+    ques.put("1c","Last Name: ");
+    ques.put("2","Date of Birth(MM/DD/YYYY)");
+    ques.put("3","Age: ");
+    ques.put("4", "Place of Birth (City, Province): ");
+    ques.put("5", "Sex (f/m):" );
+    ques.put("6", "Citizenship");
+    ques.put("7a", "Residence (Province): ");
+    ques.put("7b", "Residence (City/Municipality): ");
+    ques.put("7c", "Residence (Baranggay): ");
+    ques.put("7d","Residence (House Number/Street): ");
+    ques.put("8", "Religion: ");
+    ques.put("9","Civil Status: " );
+    ques.put("10", "Full name of Father: ");
+    ques.put("11", "Citizenship of Father: ");
+    ques.put("12", "Full name of Mother: ");
+    ques.put("13","Citizenship of Mother: ");
+    ques.put("14a", "First Name: ");
+    ques.put("14b", "Middle Name: ");
+    ques.put("14c", "Last Name: ");
+    ques.put("15 ", "Date  of Birth (MM/DD/YYYY): ");
+    ques.put("16", "Age: ");
+    ques.put("17", "Place of Birth (City/Province): ");
+    ques.put("18","Sex(f/m): ");
+    ques.put("19","Citizenship: ");
+    ques.put("20a","Residence (Province): ");
+    ques.put("20b","Residence (City/Municipality): ");
+    ques.put("20c","Residence (Baranggay): ");
+    ques.put("20d","Residence (House Number/Street): ");
+    ques.put("23"," Full name of Father: " );
+    ques.put("24", "Citizenship of Father: " );
+    ques.put("25", "Full name of Mother: ");
+    ques.put("26", "Citizenship of Mother: ");
 }
 }
 

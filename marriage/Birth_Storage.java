@@ -1,25 +1,15 @@
 
 package marriage;
 import java.util.*;
-import java.io.IOException;
-import java.io.BufferedWriter;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+
 
 public class Birth_Storage extends Birth {
   
     public LinkedHashMap <String , Object>BStore  = new LinkedHashMap();
     public static Queue <String> BS = new LinkedList();
     private String Name;
-    private static String line;
-    private static String linesss;
 
-    private int Navi;
 
-    private Queue <String> Value_Store = new LinkedList();
-    private Queue <String> Key_Store = new LinkedList();
-    public LinkedHashMap <String, Object> BBStore = new LinkedHashMap();
     
     
     public void setName(String Name){
@@ -75,70 +65,7 @@ public class Birth_Storage extends Birth {
     }
    
     
-    public void Writer() throws IOException{
-       
-        BufferedWriter Key_writer = new BufferedWriter(new FileWriter("C:\\Users\\Josie\\Desktop\\jessie's school work\\2nd year\\1st sem\\Midterm\\OOP\\Government_Agency\\Key_Store_Data\\" + getFileName() + ".txt"));
-        BufferedWriter Value_writer = new BufferedWriter(new FileWriter("C:\\Users\\Josie\\Desktop\\jessie's school work\\2nd year\\1st sem\\Midterm\\OOP\\Government_Agency\\Value_Store_Data\\" + getFileName() + ".txt"));
-        try{
-        for(Map.Entry<String, Object> entry : BStore.entrySet()){
-            Value_writer.write("\n" + entry.getValue());
-        }
-        Value_writer.close();
-        
-        } catch(IOException ex){
-            ex.printStackTrace();
-        } catch(NullPointerException e){
-            e.printStackTrace();
-        }
-         try{
-        for(Map.Entry<String, Object> entry : BStore.entrySet()){
-            Key_writer.write("\n" + entry.getKey());
-        }
-        Key_writer.close();
-        
-        } catch(IOException ex){
-            ex.printStackTrace();
-        } catch(NullPointerException e){
-            e.printStackTrace();
-        }
-
-        
-    }
-    public void Reader() throws IOException{
-        
-        BufferedReader Value_reader = new BufferedReader(new FileReader("C:\\Users\\Josie\\Desktop\\jessie's school work\\2nd year\\1st sem\\Midterm\\OOP\\Government_Agency\\Value_Store_Data\\" + getName() + ".txt"));
-        BufferedReader Key_reader = new BufferedReader(new FileReader("C:\\Users\\Josie\\Desktop\\jessie's school work\\2nd year\\1st sem\\Midterm\\OOP\\Government_Agency\\Key_Store_Data\\" + getName() + ".txt"));
-
-        try{
-        while((line = Value_reader.readLine()) != null){
-            Value_Store.add(line);
-        }
-        Value_reader.close();
-        } catch(IOException ex){
-            ex.printStackTrace();
-        } catch(NullPointerException e){
-            e.printStackTrace();
-        }
-        try{
-        while((line = Key_reader.readLine()) != null){
-            Key_Store.add(line);
-        }
-        Key_reader.close();
-        } catch(IOException ex){
-            ex.printStackTrace();
-        } catch(NullPointerException e){
-            e.printStackTrace();
-        }
-        
-        while(!Key_Store.isEmpty() && !Value_Store.isEmpty()){
-            BStore.put(Key_Store.poll(), Value_Store.poll());
-        }
-    }
-    
-    public void tryyy(){
-                
-
-    }
+ 
      public void PrintCopy(){
         
 System.out.println("\t\t\t========================================================================================================================");

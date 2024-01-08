@@ -6,8 +6,10 @@ import java.io.IOException;
 
 public class Government_Agency{
 
-    static DeathCertificate dc = new DeathCertificate(); 
-	static int ContinueOrEdit;
+    static DeathCertificate dc = new DeathCertificate(); //For death insta
+    static StorageDeath STD = new StorageDeath();
+    static int ContinueOrEdit;
+    
     static Birth B = new Birth();
     static Birth_Storage BStore = new Birth_Storage();
     static Map ques = new HashMap();
@@ -18,17 +20,37 @@ public class Government_Agency{
     static Queue <String> NumEEE = new LinkedList();
     static String[][] T1 = new String[2][100];
     static char PE, NoC;
-    static int Cont;
+    static int Cont, ResPurp;
     static double change, Copy, Price, Amount, T8, CoE, Navi, New = 1;
     static String TBP, Fname, Addresses;
     static Scanner scn = new Scanner(System.in);
     
     
-    public static void main(String[] args) throws Exception, IOException {
-        B.HQuestion();
+    public static void main(String[] args) throws Exception, IOException{
+        Scanner userInput = new Scanner(System.in);      B.HQuestion();
         ques.putAll(B.ques);
+
+        System.out.println("\t\t\t\t\t\t\t\t  ________  ____  ____  _______   __    _____  ___  \n" +
+"\t\t\t\t\t\t\t\t /\"       )(\"  _||_ \" ||   _  \"\\ |\" \\  (\\\"   \\|\"  \\  \n" +
+"\t\t\t\t\t\t\t\t(:   \\___/ |   (  ) : |(. |_)  :)||  | |.\\\\   \\    | \n" +
+"\t\t\t\t\t\t\t\t \\___  \\   (:  |  | . )|:     \\/ |:  | |: \\.   \\\\  | \n" +
+"\t\t\t\t\t\t\t\t  __/  \\\\   \\\\ \\__/ // (|  _  \\\\ |.  | |.  \\    \\. | \n" +
+"\t\t\t\t\t\t\t\t /\" \\   :)  /\\\\ __ //\\ |: |_)  :)/\\  |\\|    \\    \\ | \n" +
+"\t\t\t\t\t\t\t\t(_______/  (__________)(_______/(__\\_|_)\\___|\\____\\) \n" +
+"\t\t\t\t\t\t\t\t                                                     \n" +
+"\t\t\t\t\t\t\t\t "
+                + "\t[1]Admin"
+                + "\t\t[2]Guest");
+        System.out.print("\t: ");
+        String identifier = scn.nextLine();
+        if(identifier.equals("1")){
+            
+        }
+        else if(identifier.equals("2")){
+            
+        }
         
-             
+        System.out.print("\n\t\t\t========================================================================================================================");
         do{
         
         System.out.println();
@@ -52,7 +74,7 @@ public class Government_Agency{
                         + "\n\t\t\t\t\t\t\t\t\t\t[3] Death"
                         + "\n"
                         + "\n\t\t\t\t\tEnter purpose number: ");
-                int ResPurp = scn.nextInt();
+                ResPurp = scn.nextInt();
                 
                 
                 if(ResPurp == 1){
@@ -215,14 +237,14 @@ public class Government_Agency{
                     
                 }
                 else if(ResPurp == 2){
-                    Scanner scanner = new Scanner(System.in);
+                  
                     
                    process(); 
                 }
                 else if(ResPurp == 3){
                     ques();
-		         Scanner scn = new Scanner (System.in);
-		         printcopy();
+		       
+		        // printcopy();
     	         //Continue Or Edit
     		     dc.question();
     		     dc.display();
@@ -251,14 +273,14 @@ public class Government_Agency{
                           NumEE.add(a);
                           NumEEE.add(a);
                 
-                      }
-                      for(int i = 0; i < NumE.size(); i++){
+                     // }
+                     // for(int i = 0; i < NumE.size(); i++){
                           
-                      
+                  //Edit for Death    
                       System.out.print(NumEEE.poll()+ " " +ques.get(NumE.poll()));
                       String change = scn.nextLine();
                       switch(NumEE.poll()) {
-                      case "1A":
+                      case "1a":
                     	  dc.setfirstName(change);
                     	  break;
                       case"1b":
@@ -277,7 +299,7 @@ public class Government_Agency{
                     	  dc.setdateOfBirth(change);
                     	  break;
                       case"5":
-                    	  dc.setageAtDeath(Integer.parseInt(change));
+                    	  dc.setageAtDeath(change);
                     	  break;
                       case"6":
                     	  dc.setplaceOfDeath(change);
@@ -304,7 +326,7 @@ public class Government_Agency{
                     	  dc.setmotherName(change);
                     	  break;
                       case "14":
-                    	  dc.setageOfMother(Integer.parseInt(change));
+                    	  dc.setageOfMother(change);
                     	  break;
                       case"15":
                     	  dc.setmdelivery(change);
@@ -347,7 +369,12 @@ public class Government_Agency{
                           }         
                  
                   }while(ContinueOrEdit == 2);
-               printcopy();
+                  
+                  STD.setInfo(dc.getfirstName()+ " " + dc.getmiddleName()+ " " + dc.getlastName());
+                  STD.Info();
+                  STD.forEach();
+                  STD.printcopy();
+                  PrintCopy();
                 }
                 
                 System.out.print("\t\t\t\t\t\t\t\t\tDo you wish to continue?"
@@ -365,9 +392,7 @@ public class Government_Agency{
                // a.AdminW();
                 System.out.print("\t\t\t\t\tFirst Name of the Certificate: ");
                 scn.nextLine();
-                Fname = scn.nextLine().toUpperCase();
-                BStore.setName(Fname);
-                BStore.Reader();
+                
       
 
                 //if(BStore.BStore.containsValue(Fname)){
@@ -391,140 +416,10 @@ public class Government_Agency{
         }while(New == 1);
         
     }
-    /*
-    public static void Questions(){
-        
-        ques.put("1A", "Child First Name:");
-        ques.put("2A", "Child Middle Name (Enter NA if does'nt have one):");
-        ques.put("3A" , "Child Last Name:");
-        ques.put("4A", "Child Suffix (NA if not have): ");
-        ques.put("5A" , "Child Age: ");
-        ques.put("6A" , "Child Birthday(MM/DD/YYYY): ");
-        ques.put("7A", "Child Sex(f/m): ");
-        ques.put("8A", "Child Place of Birth(Province): ");
-        ques.put("9A", "Child Place of Birth(City/Municipality): ");
-        ques.put("10A","Child Place of Birth(Hospital/Clinic/Institution):");
-        ques.put("11A","Child Type of Birth(Single/Twin/Triplet/etc): ");
-        ques.put("12A","Child If multiple birth, child was(first/second/third/fourth/etc.): ");
-        ques.put("13A","Child Weight at Birth: ");
-        
-        ques.put("1M","Mother First name: ");
-        ques.put("2M","Mother Middle name: ");
-        ques.put("3M","Mother Last name: ");
-        ques.put("4M","Mother Citizenship: ");
-        ques.put("5M","Mother Religion: ");
-        ques.put("6M","Mother Occupation: ");
-        ques.put("7M","Mother Age at time of this birth: ");
-        ques.put("8M","Mother Residence(House Number/Street, Barangay): ");
-        ques.put("9M","Mother Residence Municipality: ");
-        ques.put("10M","Mother Province: ");
+  
 
-        ques.put("1F","Father First name: ");
-        ques.put("2F","Father Middle name: ");
-        ques.put("3F","Father Last name: ");
-        ques.put("4F","Father Citizenship: ");
-        ques.put("5F","Father Religion: ");
-        ques.put("6F","Father Occupation: ");
-        ques.put("7F","Father Age at time of this birth: ");
-        ques.put("8F","Father Residence(House Number/Street, Barangay): ");
-        ques.put("9F","Father Residence Municipality: ");
-        ques.put("10F","Father Province: ");
-
-    } */
-
-    //Death Part
-    public static void printcopy() {
-		System.out.println("====================================================================================================");
-		System.out.println("\t\t\t\t\tRepublic of the Philippines\n\t\t\t\tOFFICE OF THE CIVIL REGISTRAR GENERAL\n\t\t\t\t\tCERTIFICATE OF DEATH");
-	    System.out.println("====================================================================================================");
-	    System.out.println("----------------------------------------------------------------------------------------------------");
-		System.out.println("1. Name\t\t  (First)\t    (Middle)\t    (last)\t    |2. SEX (Male/Female)");
-	
-		System.out.printf("\t\t   %-18s%-16s%-15s|   %-16s", dc.getfirstName(),dc.getmiddleName(), dc.getlastName(), dc.getsex());
-        System.out.println("\n----------------------------------------------------------------------------------------------------");
-	    System.out.println("3. DATE OF DEATH\t\t    |4. DATE OF BIRTH\t\t    |5. AGE AT THE TIME OF DEATH");
-	    System.out.printf("   %-33s|   %-28s|   %-26s", dc.getdateOfDeath(), dc.getdateOfBirth(), dc.getageAtDeath());
-        System.out.println("\n----------------------------------------------------------------------------------------------------");
-        System.out.println("6. PLACE OF DEATH\t\t\t\t\t\t    |7. CIVIL STATUS" );
-        System.out.printf("\t\t\t%-44s|   %-20s",dc.getplaceOfDeath(),dc.getcivilStatus());
-        System.out.println("\n----------------------------------------------------------------------------------------------------");
-	    System.out.println("8. RELIGION/RELIGIOUS SECT\t    |9.CITIZENSHIP\t\t    |10. RESIDENCE");
-	    System.out.printf("   %-33s|  %-29s|    %-19s",dc.getreligion(), dc.getcitizenship(),dc.getresidence());
-        System.out.println("\n----------------------------------------------------------------------------------------------------");
-	    System.out.println("11. OCCUPATION\t\t\t    |12. NAME OF FATHER\t\t    |13. MAIDEN NAME OF MOTHER");
-	    System.out.printf("    %-32s|%-31s|%-28s",dc.getoccupation(),dc.getfatherName(), dc.getmotherName());
-        System.out.println("\n----------------------------------------------------------------------------------------------------");
-	    System.out.println("\t\t\t\t     MEDICAL CERTIFICATE");
-        System.out.println("----------------------------------------------------------------------------------------------------");
-	    System.out.println("FOR CHILDREN AGE 0 TO 7 DAYS");
-        System.out.println("----------------------------------------------------------------------------------------------------");
-	    System.out.print("14. AGE OF MOTHER: ");
-	    System.out.println(dc.getageOfmother());
-	    System.out.print("15. METHOD OF DELIVERY: ");
-	    System.out.println(dc.getmdelivery());
-	    System.out.print("16. LENGTH OF PREGNANCY WEEKS: ");
-	    System.out.println(dc.getlengthOfPreg());
-        System.out.println("----------------------------------------------------------------------------------------------------");
-	    System.out.print("17. TYPE OF BIRTH: ");
-	    System.out.println(dc.gettypeOfbirth());
-	    System.out.print("18. IF MULTIPLE BIRTH CHILD WAS: ");
-	    System.out.println(dc.getmultiBirth());
-	    System.out.print("19a. CAUSE OF DEATH: ");
-	    System.out.println(dc.getcauseOfDeath());
-        System.out.println("----------------------------------------------------------------------------------------------------");
-	    System.out.println("IF THE DECEASED IS FEMALE AGED 15-49 YEARS OLD ");
-        System.out.println("----------------------------------------------------------------------------------------------------");
-	    System.out.print("19b. CAUSE OF DEATH: ");
-	    System.out.println(dc.getcauseD());
-	    System.out.print("19c. MATERNAL CONDITION: ");
-	    System.out.println(dc.getmaternalCondition());
-	    System.out.println("a. MANNER OF DEATH: ");
-		System.out.println("b. PLACE OF OCCURANCE:");
-        System.out.println("----------------------------------------------------------------------------------------------------");
-	    System.out.println("IF THE DECEASED IS AGED  8 DAYS AND OVER ");
-        System.out.println("----------------------------------------------------------------------------------------------------\n");
-	    System.out.print("19e. CAUSE OF DEATH: " );
-	    System.out.println(dc.getcause()+"\t\t\t\t");
-	    System.out.println("19f. DEATH BY EXTERNAL CAUSES: \t\t\t\t|20. AUTOPSY");
-	    System.out.println("a. MANNER OF DEATH: \t\t\t\t\t|    "+ dc.getautopsy());
-	    System.out.println("b. PLACE OF OCCURANCE: \t\t\t\t\t|");
-	    System.out.println(dc.getdeathExternal());
-        System.out.println("----------------------------------------------------------------------------------------------------");
-	    System.out.println("21a. ATTENDANT \t\t\t\t\t\t|21b. IF ATTENDANT, STATE DURATION(MM/DD/YYYY)");
-	    System.out.printf("     %-51s|     %-30s ", dc.getattendant(),dc.getduration());
-        System.out.println("\n----------------------------------------------------------------------------------------------------");
-        System.out.println("22. CERTIFICATION OF DEATH\n[] I hereby certify that the foregoing particulars are correct as near as same can be"
-	    					+ "\nassertained ascertained and i futher certify that I [] have not attended the deceased"
-	    					+ "\nand that death to occured at __________am/pm on the date of death specified above. ");
-	    System.out.println("Signature _______________\t\t|REVIEWED BY ");
-	    System.out.println("Name in Print _______________\t\t|	__________________________________");
-	    System.out.println("Title or Position ________________\t|  Signature Over Printed Name of Health Officer");
-	    System.out.println("Adresses ________________\t\t	   ________________________");
-	    System.out.println("_________________Date__________\t\t|		     Date");
-        System.out.println("----------------------------------------------------------------------------------------------------\n");
-	    System.out.println("23. CORPSE DISPOSAL\t\t\t|24a. BURIAL/CREMATION PERMIT\t|24b. TRANSFER PERMIT");
-	    System.out.println("\t\t\t\t\t|Number ___________\t\t|Number __________");
-	    System.out.println("\t\t\t\t\t|Date Issued __________\t\t|Date Issued ___________");
-        System.out.println("----------------------------------------------------------------------------------------------------");
-	    System.out.println("25. NAME AND ADRESS OF CEMETERY OR CREMATORY");
-        System.out.println("----------------------------------------------------------------------------------------------------");
-	    System.out.println("26. CERTIFICATION OF INFORMANT\t\t\t|"
-	    					+ "\nI hereby certify that all information\t\t|"
-	    					+ "\nsupplied are true and correct to my\t\t|27. PREPARED BY"
-	    					+ "\nown knowledge\t\t\t\t\t|Signature ____________");
-	    System.out.println("Signature __________\t\t\t\t|Name in Print __________");
-	    System.out.println("Name in Print __________\t\t\t|Address ___________");
-	    System.out.println("Address __________\t\t\t\t|Date __________");
-	    System.out.println("Date __________");
-        System.out.println("----------------------------------------------------------------------------------------------------");
-	    System.out.println("28. RECEIVED BY\t\t\t\t\t|29. REGISTERED AT THE OFFICE OF THE CIVIL REGISTRAR");
-	    System.out.println("Signature __________\t\t\t\t|Signature __________");
-	    System.out.println("Name in Print __________\t\t\t|Name in Print __________");
-	    System.out.println("Address __________\t\t\t\t|Address ___________");
-	    System.out.println("Date __________\t\t\t\t\t|Date __________");
-	
-	}
-	
+   
+	//DEATH QUESTION
 	public static void ques() {
 		ques.put("1a", "First Name: ");
 		ques.put("1b", "Middle Name: ");
@@ -555,48 +450,44 @@ public class Government_Agency{
 		
 	}
 
-    //Marriage Method
-    static void process(){
-		  
+    static void process() {
         Scanner scanner = new Scanner(System.in);
-         MarriageCertificate certificate = new MarriageCertificate();
-        
+        MarriageCertificate certificate = new MarriageCertificate();
+    
         certificate.inputMarriageCertificate();
         certificate.displayCertificateInformation();
-
-        //condition to edit
     
+        // Condition to edit
         System.out.print("\tDo you want to edit? [Y] Yes or [N] No: ");
-        String user_input = scanner.nextLine();
-        
-        if(user_input.equals("Y")|| user_input.equals("y")){
+        String userInput = scanner.nextLine();
+    
+        if (userInput.equalsIgnoreCase("Y")) {
             certificate.editCertificateInformation();
             certificate.displayCertificateInformation();
-        }
     
-
-         //System Repeats
-        boolean System_repeater = true;
-        while(System_repeater){
-           
-           System.out.println("\tDo you want to Continue to Edit?");
-           System.out.print("\t[Y] Yes or [N] No: ");
-           String decision = scanner.nextLine();
-           if (decision.equals("Y")|| decision.equals("y")){
-               System_repeater = true;
-               certificate.editCertificateInformation();
-           }
-           else if(decision.equals("N") || decision.equals("n")){
-                   System_repeater = false;
-           }
-           else{
-            System_repeater = true;
-           }
-        } 
-           certificate.displayCertificateInformation();
-           //certificate.printerlol();
-        
-   } 
+            // System Repeats
+            boolean systemRepeater = true;
+            while (systemRepeater) {
+                System.out.println("Debug - Map keys before editing loop: " + ques.keySet());
+                System.out.print("\tDo you want to Continue to Edit? [Y] Yes or [N] No: ");
+                String decision = scanner.nextLine();
+    
+                if (decision.equalsIgnoreCase("Y")) {
+                    System.out.println("Debug - Map keys before editing: " + ques.keySet());
+                    systemRepeater = true;
+                    certificate.editCertificateInformation();
+                } else if (decision.equalsIgnoreCase("N")) {
+                    systemRepeater = false;
+                } else {
+                    System.out.println("\tInvalid input. Please enter 'Y' or 'N'.");
+                    systemRepeater = true;
+                }
+            }
+        }
+        certificate.displayCertificateInformation();
+        // certificate.printerlol();
+    }
+    
 
     public static void PrintCopy() throws Exception{
                     System.out.print("\t\t\t\tDo you wish to get the copy of the Certificate?"
@@ -604,7 +495,11 @@ public class Government_Agency{
                                + "\n\t\t\t\t\t\t[2] No: ");
                        int YorN = scn.nextInt();
                        if(YorN == 1){
+                           if(ResPurp == 1){
                            BStore.PrintCopy();
+                           }else if(ResPurp == 3){
+                           STD.printcopy();
+                           }
                            System.out.print("\t\t\t\tWhat kind of Method you want to choose"
                                    + "\n\t\t\t\t\t\t[1] Pick Up"
                                    + "\n\t\t\t\t\t\t[2] Delivery: ");
