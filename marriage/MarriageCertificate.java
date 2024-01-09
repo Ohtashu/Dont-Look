@@ -455,11 +455,11 @@ public class MarriageCertificate{
 	        String hmotheCitizen = scanner.nextLine();
 	        setHusbandMotherCitizen(hmotheCitizen);
 	        
-	        System.out.print("Place of Marriage: ");
+	        System.out.print("\tPlace of Marriage: ");
 	        String placeMarraige = scanner.nextLine();
 	        setPlaceMarriage(placeMarraige);
 	        
-	        System.out.print("Date of Marriage: ");
+	        System.out.print("\tDate of Marriage: ");
 	        String dateMarriage = scanner.nextLine();
 	        setDateMarriage(dateMarriage);
 
@@ -468,7 +468,7 @@ public class MarriageCertificate{
 
 	    // Display Area
 	    void displayCertificateInformation(){
-                System.out.println("\t------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("\t------------------------------------------------------------------------------------------------------------------------");
 	        System.out.println("\n\tWIFE'S INFORMATION");
 	        System.out.println("\t1a. First Name: " + getWifeFirst());
 	        System.out.println("\t1b. Middle Name: " + getWifeMiddle());
@@ -488,7 +488,7 @@ public class MarriageCertificate{
 	        System.out.println("\t11. Citizenship of Father: " + getWifeFatherCitizen());
 	        System.out.println("\t12. Full name of Mother: " + getWifeMother());
 	        System.out.println("\t13. Citizenship of Mother: " + getWifeMotherCitizen());
-                System.out.println("\t------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("\t------------------------------------------------------------------------------------------------------------------------");
 	        System.out.println("\n\tHUSBAND'S INFORMATION");
 	        System.out.println("\t14a. First Name: " + getHusbandFirst());
 	        System.out.println("\t14b. Middle Name: " + getHusbandMiddle());

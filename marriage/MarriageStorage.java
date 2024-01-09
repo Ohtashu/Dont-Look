@@ -32,7 +32,7 @@ Marriage_Storage.put("6" + getSMName(), getWifeCitzen());
 Marriage_Storage.put("7a" + getSMName(), getWifeProvince());
 Marriage_Storage.put("7b" + getSMName(),  getWifeCity());
 Marriage_Storage.put("7c" + getSMName(), getWifeBarangay());
-Marriage_Storage.put("7d" + getSMName(),getWifeStreet());
+Marriage_Storage.put("7d" + getSMName(), getWifeStreet());
 Marriage_Storage.put("8" + getSMName(),  getWifeReligion());
 Marriage_Storage.put("9" + getSMName(), getWifeStatus());
 Marriage_Storage.put("10" + getSMName(),getWifeFather());
