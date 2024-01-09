@@ -684,40 +684,36 @@ public class Admin extends Birth_Storage{
         System.out.println("\t13. Citizenship of Mother: " + MAdmin_Store.get("13" + marriageStorage.getSMName()));
         System.out.println("\t------------------------------------------------------------------------------------------------------------------------");
         System.out.println("\n\tHUSBAND'S INFORMATION");
-        System.out.println("\t14a. First Name: " + MAdmin_Store.get("14a" + marriageStorage.getSMName()));
-        System.out.println("\t14b. Middle Name: " + MAdmin_Store.get("14b" + marriageStorage.getSMName()));
-        System.out.println("\t14c. Last Name: " + MAdmin_Store.get("14c" + marriageStorage.getSMName()));
-        System.out.println("\t15. Date of Birth (MM/DD/YYYY): " + MAdmin_Store.get("15" + marriageStorage.getSMName()));
-        System.out.println("\t16. Age: " + MAdmin_Store.get("16" + marriageStorage.getSMName()));
-        System.out.println("\t17. Place of Birth (City, Province): " + MAdmin_Store.get("17" + marriageStorage.getSMName()));
-        System.out.println("\t18. Sex(f/m): " + MAdmin_Store.get("18" + marriageStorage.getSMName()));
-        System.out.println("\t19. Citizenship: " + MAdmin_Store.get("19" + marriageStorage.getSMName()));
-        System.out.println("\t20a. Residence (Province): " + MAdmin_Store.get("20a" + marriageStorage.getSMName()));
-        System.out.println("\t20b. Residence (City/Municipality): " + MAdmin_Store.get("20b" + marriageStorage.getSMName()));
-        System.out.println("\t20c. Residence (Barangay): " + MAdmin_Store.get("20c" + marriageStorage.getSMName()));
-        System.out.println("\t20d. Residence (House Number/Street): " + MAdmin_Store.get("20d" + marriageStorage.getSMName()));
-        System.out.println("\t21. Religion: " + MAdmin_Store.get("21" + marriageStorage.getSMName()));
-        System.out.println("\t22. Civil status: " + MAdmin_Store.get("22" + marriageStorage.getSMName()));
-        System.out.println("\t23. Full name of Father: " + MAdmin_Store.get("23" + marriageStorage.getSMName()));
-        System.out.println("\t24. Citizenship of Father: " + MAdmin_Store.get("24" + marriageStorage.getSMName()));
-        System.out.println("\t25. Full name of Mother: " + MAdmin_Store.get("25" + marriageStorage.getSMName()));
-        System.out.println("\t26. Citizenship of Mother: " + MAdmin_Store.get("26" + marriageStorage.getSMName()));
-        System.out.println("\t------------------------------------------------------------------------------------------------------------------------");
-        System.out.println("\tPlace of Marriage: " + MAdmin_Store.get("27" + marriageStorage.getSMName()));
-        System.out.println("\tDate of Marriage: " + MAdmin_Store.get("28" + marriageStorage.getSMName()));
-        System.out.println("\tThis is to certify that I " + MAdmin_Store.get("1a" + marriageStorage.getSMName()) + " " + MAdmin_Store.get("1b" + marriageStorage.getSMName()) + " " + MAdmin_Store.get("1c" + marriageStorage.getSMName())
-                + ",\nboth of legal age, of our own free will and accord,"
-                + "\nin the presence of the person solemnizing this marriage and of the witness named below,"
-                + "\ndo hereby take each other as husband and wife.");
-
+        System.out.println("\t14a. First Name: " + getHusbandFirst());
+        System.out.println("\t14b. Middle Name: " + getHusbandMiddle());
+        System.out.println("\t14c. Last Name: " + getHusbandLast());
+        System.out.println("\t15. Date of Birth (MM/DD/YYYY): " + getHusbandDateOfBirth());
+        System.out.println("\t16. Age: " + getHusbandAge());
+        System.out.println("\t17. Place of Birth (City, Province): " + getHusbandPlaceOfBirth());
+        System.out.println("\t18. Sex(f/m): " + getHusbandSex());
+        System.out.println("\t19. Citizenship: " + getHusbandCitizen());
+        System.out.println("\t20a. Residence (Province): " + getHusbandProvince());
+        System.out.println("\t20b. Residence (City/Municipality): " + getHusbandCity());
+        System.out.println("\t20c. Residence (Baranggay): " + getHusbandBarangay());
+        System.out.println("\t20d. Residence (House Number/Street): " + getHusbandStreet());
+        System.out.println("\t21. Religion: " + getHusbandReligion());
+        System.out.println("\t22. Civil status: " + getHusbandStatus());
+        System.out.println("\t23. Full name of Father: " + getHusbandFather());
+        System.out.println("\t24. Citizenship of Father: " + getHusbandFatherCitizen());
+        System.out.println("\t25. Full name of Mother: " + getHusbandMother());
+        System.out.println("\t26. Citizenship of Mother: " + getHusbandMotherCitizen());
+            System.out.println("\t------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("\tPlace of Marriage" + getPlaceMarriage());
+        System.out.println("\tDate of Marriage" + getDateMarriage());
+        System.out.println("\tThis is to certify that I " + getWifeFirst()+" "+getWifeMiddle()+" "+getWifeLast() +" and "+ getHusbandFirst()+" "+getHusbandMiddle()+" "+getHusbandLast()
+                            +",\nboth of legal age, of our own free will and accord,"
+                            + "\nthe presence of the person solemmizing this marriage and of the witness named below,"
+                            + "\ntake each other as husband and wife.");
+    }
+    public void Death(){
+        
     }
 
-
-
-
-
-
-    //Ending of Marriage Part
 
 
 
