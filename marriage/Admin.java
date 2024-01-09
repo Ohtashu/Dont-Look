@@ -6,7 +6,7 @@ public class Admin extends Birth_Storage{
     
     Scanner scn = new Scanner(System.in);
     private int Navi = 1, News;
-    private static String CodeC, change, PURP;
+    private static String CodeC, change, PURP, NEWSS;
     private Map <String, String> AdminS = new HashMap();
     private Map AdminQ = new HashMap();
     private char Ans;
@@ -16,7 +16,11 @@ public class Admin extends Birth_Storage{
     Queue<String> QA = new LinkedList();
     Queue<String> QAA = new LinkedList<>();
     //Marriage Part
-    MarriageStorage marriageStorage = new MarriageStorage();
+
+    static MarriageStorage marriageStorage = new MarriageStorage();
+    private Map <String, String> AdminM = new HashMap();
+    private int NaviM = 1;
+    
     
     public void AdminW(){
         HQuestion();
@@ -28,13 +32,20 @@ public class Admin extends Birth_Storage{
                        AdminS.put( Navi + "B" ,BS.poll());
                        Navi++;
                      } 
+        while(!marriageStorage.MS.isEmpty()){
+                       
+                       AdminM.put( Navi + "B" ,marriageStorage.MS.poll());
+                       NaviM++;
+                     } 
                 
         System.out.print("\t\t\t\t\t\t\t\t\t\tAdmin Certificates"
                         + "\n\t\t\t\t\t\t\t\t\t[B] Birth"
                         + "\n\t\t\t\t\t\t\t\t\t[M] Marriage"
                         + "\n\t\t\t\t\t\t\t\t\t[D] Death"
                         + "\n"
-                        + "\n\t\t\t\t\tEnter purpose number: ");
+                        + "\n\t\t\t\t\tEnter purpose Letter: ");
+                        
+                        marriageStorage.printingForm();
         PURP = scn.next().toUpperCase();
      
         if(PURP.equals("B") || PURP.equals("D" ) || PURP.equals("M")){
@@ -44,8 +55,8 @@ public class Admin extends Birth_Storage{
                 + "\n[D] Delete"
                 + "\n[V] View: ");
         
-        Ans = scn.next().toUpperCase().charAt(0);
-        
+                Ans = scn.next().toUpperCase().charAt(0);
+
         switch(Ans){
             case 'A':
                 
@@ -378,7 +389,44 @@ public class Admin extends Birth_Storage{
                      System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
                 }
             case 'V':
-                
+            do{
+                if(AdminS.isEmpty()){
+                    
+                    System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+                     System.out.println("\t\t\t\t\t\t\t\t\t\tNO DATA YET!!!");
+                     System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+            
+        }else{
+                    
+            System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+                     System.out.println("\t\t\t\t\t\t\t\t\t\tVIEW DATA!!!");
+                     System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+            for(Map.Entry<String, String> eh : AdminS.entrySet()){
+                    
+                    System.out.println(eh.getKey() + ". " + eh.getValue());
+                }
+                    System.out.print("Enter the code of the DATA: ");
+                    String VCode = scn.next().toUpperCase();
+                    
+                    if(AdminS.containsKey(VCode)){
+                        setName(AdminS.get(VCode));
+                        BDisplay();
+                        
+                     System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+                     System.out.println("\t\t\t\t\t\t\t\t\t\tVIEW AGAIN(Y/N)? ");
+                     NEWSS = scn.next().toUpperCase();
+                     System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+                     
+                     
+                        
+                    }else{
+                        
+                     System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+                     System.out.println("\t\t\t\t\t\t\t\t\t\tINVALID INPUT!!!");
+                     System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+                    }
+        }
+                    }while(NEWSS.equalsIgnoreCase("A"));
                 break;
                 
             case 'A':
@@ -388,58 +436,288 @@ public class Admin extends Birth_Storage{
         
     }
     public void Marriage(){
-        System.out.println("\t------------------------------------------------------------------------------------------------------------------------");
-        System.out.println("\n\tWIFE'S INFORMATION");
-        System.out.println("\t1a. First Name: " +  MAdmin_Store.get("1a" +marriageStorage.getWifeFirst()));
-        System.out.println("\t1b. Middle Name: " + MAdmin_Store.get("1b" + marriageStorage.getWifeMiddle()));
-        System.out.println("\t1c. Last Name: " +  MAdmin_Store.get("1c" + marriageStorage.getWifeLast()));
-        System.out.println("\t2. Date of Birth (MM/DD/YYYY): " + MAdmin_Store.get("2" + marriageStorage.getWifeDateOfBirth()));
-        System.out.println("\t3. Age: " + MAdmin_Store.get("3" + marriageStorage.getWifeAge()));
-        System.out.println("\t4. Place of Birth (City, Province): " + getWifePlaceOfBirth());
-        System.out.println("\t5. Sex(f/m): " + getWifeSex());
-        System.out.println("\t6. Citizenship: " + getWifeCitzen());
-        System.out.println("\t7a. Residence (Province): " + getWifeProvince());
-        System.out.println("\t7b. Residence (City/Municipality): " + getWifeCity());
-        System.out.println("\t7c. Residence (Baranggay): " + getWifeBarangay());
-        System.out.println("\t7d. Residence (House Number/Street): " + getWifeStreet());
-        System.out.println("\t8. Religion: " + getWifeReligion());
-        System.out.println("\t9. Civil status: " + getWifeStatus());
-        System.out.println("\t10. Full name of Father: " + getWifeFather());
-        System.out.println("\t11. Citizenship of Father: " + getWifeFatherCitizen());
-        System.out.println("\t12. Full name of Mother: " + getWifeMother());
-        System.out.println("\t13. Citizenship of Mother: " + getWifeMotherCitizen());
-        System.out.println("\t------------------------------------------------------------------------------------------------------------------------");
-        System.out.println("\n\tHUSBAND'S INFORMATION");
-        System.out.println("\t14a. First Name: " + getHusbandFirst());
-        System.out.println("\t14b. Middle Name: " + getHusbandMiddle());
-        System.out.println("\t14c. Last Name: " + getHusbandLast());
-        System.out.println("\t15. Date of Birth (MM/DD/YYYY): " + getHusbandDateOfBirth());
-        System.out.println("\t16. Age: " + getHusbandAge());
-        System.out.println("\t17. Place of Birth (City, Province): " + getHusbandPlaceOfBirth());
-        System.out.println("\t18. Sex(f/m): " + getHusbandSex());
-        System.out.println("\t19. Citizenship: " + getHusbandCitizen());
-        System.out.println("\t20a. Residence (Province): " + getHusbandProvince());
-        System.out.println("\t20b. Residence (City/Municipality): " + getHusbandCity());
-        System.out.println("\t20c. Residence (Baranggay): " + getHusbandBarangay());
-        System.out.println("\t20d. Residence (House Number/Street): " + getHusbandStreet());
-        System.out.println("\t21. Religion: " + getHusbandReligion());
-        System.out.println("\t22. Civil status: " + getHusbandStatus());
-        System.out.println("\t23. Full name of Father: " + getHusbandFather());
-        System.out.println("\t24. Citizenship of Father: " + getHusbandFatherCitizen());
-        System.out.println("\t25. Full name of Mother: " + getHusbandMother());
-        System.out.println("\t26. Citizenship of Mother: " + getHusbandMotherCitizen());
-            System.out.println("\t------------------------------------------------------------------------------------------------------------------------");
-        System.out.println("\tPlace of Marriage" + getPlaceMarriage());
-        System.out.println("\tDate of Marriage" + getDateMarriage());
-        System.out.println("\tThis is to certify that I " + getWifeFirst()+" "+getWifeMiddle()+" "+getWifeLast() +" and "+ getHusbandFirst()+" "+getHusbandMiddle()+" "+getHusbandLast()
-                            +",\nboth of legal age, of our own free will and accord,"
-                            + "\nthe presence of the person solemmizing this marriage and of the witness named below,"
-                            + "\ntake each other as husband and wife.");
+        // Inside the MarriageStorage class
+
+       switch(Ans){
+            
+            case 'E':
+                if(!AdminM.isEmpty()){
+                 for(Map.Entry<String, String> eh : AdminM.entrySet()){
+                    
+                    System.out.println(eh.getKey() + ". " + eh.getValue());
+                }
+                
+                    System.out.print("the code of the Certificate: ");
+                    String Code = scn.next().toUpperCase();
+                    if(AdminM.containsKey(Code)){
+                    do{   
+                    System.out.print("Do you wish you to edit this Data?"
+                                + "\n[Y] Yes"
+                                + "\n[N] No: ");
+                        char YoN = scn.next().toUpperCase().charAt(0);
+                        if(YoN == 'Y'){
+                        System.out.println("\t\t\t\t\tCustomer: " + AdminM.get(Code));
+                        setName(AdminM.get(Code));
+                        MDisplay();
+                        System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+                        System.out.print("\t\t\t\t\tEnter the Code Value of that question example(1A)"
+                                + "\n\t\t\t\t\tif more than 1 each number and value should be seprate by space: ");
+                       
+                        scn.nextLine();
+                        CodeC = scn.nextLine().toUpperCase();
+                        
+                        String[] lies = CodeC.split(" ");
+                        
+                        for(String a : lies){
+                           if(AdminQ.containsKey(a)){
+                            QA.add(a);
+                            QAA.add(a);
+                        //}
+                        //while(!QA.isEmpty()){
+                            
+                        System.out.print(AdminQ.get(QAA.poll()) + " ");
+                        change = scn.nextLine();
+                        
+                      
+                    
+                       
+                    switch(QA.poll()){
+                        case "1A":
+                           MAdmin_Store.replace("1A" + getName(), change);
+                            break;
+                        case "2A":
+                           MAdmin_Store.replace("2A" + getName(), change);
+                            break;
+                        case "3A":
+                            MAdmin_Store.replace("3A" + getName(), change);
+                            break;
+                        case "4A":
+                           MAdmin_Store.replace("4A" + getName(), change);
+                            break;
+                        case "5A":
+                            MAdmin_Store.replace("5A" + getName(), change);
+                            break;
+                        case "6A":
+                            MAdmin_Store.replace("6A" + getName(), change);
+                            break;
+                        case "7A":
+                            MAdmin_Store.replace("7A" + getName(), change);
+                            break;
+                        case "8A":
+                            MAdmin_Store.replace("8A" + getName(), change);
+                            break;
+                        case "9A":
+                            MAdmin_Store.replace("9A" + getName(), change);
+                            break;
+                        case "10A":
+                            MAdmin_Store.replace("10A" + getName(), change);
+                            break;
+                        case "11A":
+                            MAdmin_Store.replace("11A" + getName(), change);
+                            break;
+                        case "12A":
+                            MAdmin_Store.replace("12A" + getName(), change);
+                            break;
+                        case "13":
+                           MAdmin_Store.replace("13A" + getName(), change);
+                            break;
+                        case "1M":
+                            MAdmin_Store.replace("1M" + getName(), change);
+                            break;
+                        case "2M":
+                            MAdmin_Store.replace("2M" + getName(), change);
+                            break;
+                        case "3M":
+                            MAdmin_Store.replace("3M" + getName(), change);
+                            break;
+                        case "4M":
+                            MAdmin_Store.replace("4M" + getName(), change);
+                            break;
+                        case "5M":
+                            MAdmin_Store.replace("5M" + getName(), change);
+                            break;
+                        case "6M":
+                            MAdmin_Store.replace("6M" + getName(), change);
+                            break;
+                        case "7M":
+                            MAdmin_Store.replace("7M" + getName(), change);
+                            break;
+                        case "8M":
+                            MAdmin_Store.replace("8M" + getName(), change);
+                            break;
+                        case "9M":
+                            MAdmin_Store.replace("9M" + getName(), change);
+                            break;
+                        case "10M":
+                            MAdmin_Store.replace("10M" + getName(), change);
+                            break;
+                            case "1F":
+                            MAdmin_Store.replace("1F" + getName(), change);
+                            break;
+                        case "2F":
+                            MAdmin_Store.replace("2F" + getName(), change);
+                            break;
+                        case "3F":
+                            MAdmin_Store.replace("3F" + getName(), change);
+                            break;
+                        case "4F":
+                            MAdmin_Store.replace("4F" + getName(), change);
+                            break;
+                        case "5F":
+                            MAdmin_Store.replace("5F" + getName(), change);
+                            break;
+                        case "6F":
+                            MAdmin_Store.replace("6F" + getName(), change);
+                            break;
+                        case "7F":
+                            MAdmin_Store.replace("7F" + getName(), change);
+                            break;
+                        case "8F":
+                            MAdmin_Store.replace("8F" + getName(), change);
+                            break;
+                        case "9F":
+                            MAdmin_Store.replace("9F" + getName(), change);
+                            break;
+                        case "10F":
+                            MAdmin_Store.replace("10F" + getName(), change);
+                            break;
+                                }
+                        }
+                   }
+                    MDisplay();
+                        }else{
+                            break;
+                        }
+                    }while(true);
+                    }
+                }else{
+                    
+                     System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+                     System.out.println("\t\t\t\t\t\t\t\t\t\tNo DATA YET!!!!");
+                     System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+                    
+                }
+                break;
+            case 'D':
+                if(!AdminM.isEmpty()){
+                   Admin_Delete AD = new Admin_Delete();
+                for(Map.Entry<String, String> eh : AdminM.entrySet()){
+                    
+                    System.out.println(eh.getKey() + ". " + eh.getValue());
+                }
+                System.out.print("Enter the code of the Certificate: ");
+                String DCode = scn.next().toUpperCase();
+                
+               if(AdminM.containsKey(DCode)){
+                    
+                    System.out.print("This Certificate is about get Deleted!"
+                            + "\n[C] Continue"
+                            + "\n[N] No: ");
+                    
+                    char DorN = scn.next().toUpperCase().charAt(0);
+                    
+                    switch(DorN){
+                        case 'C':
+                            AD.setDNAME(AdminS.get(DCode));
+                            AD.AdminDSS.putAll(MAdmin_Store);
+                            MAdmin_Store.clear();
+                            
+                            System.out.println("The Certificate is being deleted....");
+                            AD.AdminDS();
+                            BAdmin_Store.putAll(AD.AdminDSS);
+                            AdminM.remove(DCode);
+                            AD.AdminDSS.clear();
+                         
+                            
+                        case 'N':
+                            
+                            break;
+                        default:
+                            
+                            System.out.println("Invalid Answer");
+                            break;
+                    }
+                break;
+               }
+                }else {
+                    System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+                     System.out.println("\t\t\t\t\t\t\t\t\t\tNO DATA YET!!!");
+                     System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+                }
+            case 'V':
+                
+                break;
+                
+            case 'A':
+                
+                break;
+        }    
+        
+
     }
     public void Death(){
         
     }
+    
 
+    //Marriage Processs
+    public void MDisplay(){
+         System.out.println("\t------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("\n\tWIFE'S INFORMATION");
+        System.out.println("\t1a. First Name: " + MAdmin_Store.get("1a" + marriageStorage.getSMName()));
+        System.out.println("\t1b. Middle Name: " + MAdmin_Store.get("1b" + marriageStorage.getSMName()));
+        System.out.println("\t1c. Last Name: " + MAdmin_Store.get("1c" + marriageStorage.getSMName()));
+        System.out.println("\t2. Date of Birth (MM/DD/YYYY): " + MAdmin_Store.get("2" + marriageStorage.getSMName()));
+        System.out.println("\t3. Age: " + MAdmin_Store.get("3" + marriageStorage.getSMName()));
+        System.out.println("\t4. Place of Birth (City, Province): " + MAdmin_Store.get("4" + marriageStorage.getSMName()));
+        System.out.println("\t5. Sex(f/m): " + MAdmin_Store.get("5" + marriageStorage.getSMName()));
+        System.out.println("\t6. Citizenship: " + MAdmin_Store.get("6" + marriageStorage.getSMName()));
+        System.out.println("\t7a. Residence (Province): " + MAdmin_Store.get("7a" + marriageStorage.getSMName()));
+        System.out.println("\t7b. Residence (City/Municipality): " + MAdmin_Store.get("7b" + marriageStorage.getSMName()));
+        System.out.println("\t7c. Residence (Barangay): " + MAdmin_Store.get("7c" + marriageStorage.getSMName()));
+        System.out.println("\t7d. Residence (House Number/Street): " + MAdmin_Store.get("7d" + marriageStorage.getSMName()));
+        System.out.println("\t8. Religion: " + MAdmin_Store.get("8" + marriageStorage.getSMName()));
+        System.out.println("\t9. Civil status: " + MAdmin_Store.get("9" + marriageStorage.getSMName()));
+        System.out.println("\t10. Full name of Father: " + MAdmin_Store.get("10" + marriageStorage.getSMName()));
+        System.out.println("\t11. Citizenship of Father: " + MAdmin_Store.get("11" + marriageStorage.getSMName()));
+        System.out.println("\t12. Full name of Mother: " + MAdmin_Store.get("12" + marriageStorage.getSMName()));
+        System.out.println("\t13. Citizenship of Mother: " + MAdmin_Store.get("13" + marriageStorage.getSMName()));
+        System.out.println("\t------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("\n\tHUSBAND'S INFORMATION");
+        System.out.println("\t14a. First Name: " + MAdmin_Store.get("14a" + marriageStorage.getSMName()));
+        System.out.println("\t14b. Middle Name: " + MAdmin_Store.get("14b" + marriageStorage.getSMName()));
+        System.out.println("\t14c. Last Name: " + MAdmin_Store.get("14c" + marriageStorage.getSMName()));
+        System.out.println("\t15. Date of Birth (MM/DD/YYYY): " + MAdmin_Store.get("15" + marriageStorage.getSMName()));
+        System.out.println("\t16. Age: " + MAdmin_Store.get("16" + marriageStorage.getSMName()));
+        System.out.println("\t17. Place of Birth (City, Province): " + MAdmin_Store.get("17" + marriageStorage.getSMName()));
+        System.out.println("\t18. Sex(f/m): " + MAdmin_Store.get("18" + marriageStorage.getSMName()));
+        System.out.println("\t19. Citizenship: " + MAdmin_Store.get("19" + marriageStorage.getSMName()));
+        System.out.println("\t20a. Residence (Province): " + MAdmin_Store.get("20a" + marriageStorage.getSMName()));
+        System.out.println("\t20b. Residence (City/Municipality): " + MAdmin_Store.get("20b" + marriageStorage.getSMName()));
+        System.out.println("\t20c. Residence (Barangay): " + MAdmin_Store.get("20c" + marriageStorage.getSMName()));
+        System.out.println("\t20d. Residence (House Number/Street): " + MAdmin_Store.get("20d" + marriageStorage.getSMName()));
+        System.out.println("\t21. Religion: " + MAdmin_Store.get("21" + marriageStorage.getSMName()));
+        System.out.println("\t22. Civil status: " + MAdmin_Store.get("22" + marriageStorage.getSMName()));
+        System.out.println("\t23. Full name of Father: " + MAdmin_Store.get("23" + marriageStorage.getSMName()));
+        System.out.println("\t24. Citizenship of Father: " + MAdmin_Store.get("24" + marriageStorage.getSMName()));
+        System.out.println("\t25. Full name of Mother: " + MAdmin_Store.get("25" + marriageStorage.getSMName()));
+        System.out.println("\t26. Citizenship of Mother: " + MAdmin_Store.get("26" + marriageStorage.getSMName()));
+        System.out.println("\t------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("\tPlace of Marriage: " + MAdmin_Store.get("27" + marriageStorage.getSMName()));
+        System.out.println("\tDate of Marriage: " + MAdmin_Store.get("28" + marriageStorage.getSMName()));
+        System.out.println("\tThis is to certify that I " + MAdmin_Store.get("1a" + marriageStorage.getSMName()) + " " + MAdmin_Store.get("1b" + marriageStorage.getSMName()) + " " + MAdmin_Store.get("1c" + marriageStorage.getSMName())
+                + ",\nboth of legal age, of our own free will and accord,"
+                + "\nin the presence of the person solemnizing this marriage and of the witness named below,"
+                + "\ndo hereby take each other as husband and wife.");
+
+    }
+
+
+
+
+
+
+    //Ending of Marriage Part
 
 
 

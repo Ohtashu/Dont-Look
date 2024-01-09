@@ -6,8 +6,8 @@ import java.util.*;
 
 public class Admin_Delete extends Admin{
     
-    LinkedHashMap <String, String>AdminDSS = new LinkedHashMap();
-    LinkedHashMap <String, String>AdminDS = new LinkedHashMap();
+    LinkedHashMap <String, String> AdminDSS = new LinkedHashMap();
+    LinkedHashMap <String, String> AdminDS = new LinkedHashMap();
     LinkedHashMap <String, String>Name = new LinkedHashMap();
     private int DS = 1;
     

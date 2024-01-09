@@ -4,7 +4,6 @@
  */
 package marriage;
 import java.util.*;
-import java.util.zip.CRC32;
 /**
  *
  * @author flore
@@ -13,7 +12,7 @@ public class MarriageStorage extends MarriageCertificate {
 public HashMap <String, String> Marriage_Storage = new HashMap <String, String>();
 MarriageCertificate certificate = new MarriageCertificate();
 String SMName;
-
+Queue<String> MS = new LinkedList();
 public String getSMName(){
     return SMName;
 } 
@@ -59,8 +58,10 @@ Marriage_Storage.put("23" + getSMName(),  getHusbandFather());
 Marriage_Storage.put("24" + getSMName(),   getHusbandFatherCitizen());
 Marriage_Storage.put("25" + getSMName(), getHusbandMother());
 Marriage_Storage.put("26" + getSMName(), getHusbandMotherCitizen());
-Marriage_Storage.put("27" + getSMName(),      getPlaceMarriage());
+Marriage_Storage.put("27" + getSMName(), getPlaceMarriage());
 Marriage_Storage.put("28" + getSMName(), getDateMarriage());
+
+MS.add( getWifeFirst()+ " " + getWifeMiddle()+ " " + getWifeLast());
 
 }
 
@@ -102,6 +103,7 @@ public void printingForm(){
 		        System.out.print("Date Of Marriage: "+ Marriage_Storage.get("28" + getSMName()));
 		        System.out.println("\n-----------------------------------------------------------------------------------------------------------------------");
 	}
+
 
 
 

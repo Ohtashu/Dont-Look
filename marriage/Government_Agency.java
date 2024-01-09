@@ -50,10 +50,12 @@ public class Government_Agency {
     
             admin.AdminW();
             BStore.BStore.clear();
-            if(!admin.BAdmin_Store.isEmpty()){
+          
             BStore.BStore.putAll(admin.BAdmin_Store);
-            }
 
+            storage.Marriage_Storage.clear();
+            storage.Marriage_Storage.putAll(admin.MAdmin_Store);
+            
         }
         else if(identifier.equals("2")){
             
@@ -527,6 +529,7 @@ public class Government_Agency {
         certificate.displayCertificateInformation();
         storage.setSMName(certificate.getWifeFirst() + certificate.getWifeMiddle() + certificate.getWifeLast());
         storage.SMarriageinfo();
+        admin.MAdmin_Store.putAll(storage.Marriage_Storage);
         storage.printingForm();
         
     
