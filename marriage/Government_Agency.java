@@ -462,7 +462,7 @@ public class Government_Agency {
         
         certificate.inputMarriageCertificate();
         certificate.displayCertificateInformation();
-        storage.setSMName(certificate.getWifeFirst() + " " + certificate.getWifeMiddle() + " " + certificate.getWifeLast());
+        storage.setSMName(certificate.getWifeFirst() + certificate.getWifeMiddle() + certificate.getWifeLast());
         storage.SMarriageinfo();
         storage.printingForm();
         
@@ -478,18 +478,21 @@ public class Government_Agency {
             // System Repeats
             boolean systemRepeater = true;
             while (systemRepeater) {
+
                 System.out.print("\tDo you want to Continue to Edit? [Y] Yes or [N] No: ");
                 String decision = scanner.nextLine();
-    
+                 
                 if (decision.equalsIgnoreCase("Y")) {
                     systemRepeater = true;
                     certificate.editCertificateInformation();
                 } else if (decision.equalsIgnoreCase("N")) {
                     systemRepeater = false;
+                    storage.printingForm();
                 } else {
                     System.out.println("\tInvalid input. Please enter 'Y' or 'N'.");
                     systemRepeater = true;
                 }
+           
             }
         }
         certificate.displayCertificateInformation();

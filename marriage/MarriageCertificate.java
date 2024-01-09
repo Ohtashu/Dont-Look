@@ -3,65 +3,70 @@ import java.util.*;
 public class MarriageCertificate{
 	String PersonName, Addresses;
     private static Map ques = new HashMap();
-     String contact_Number;
-     String correctionDetail;
-     double copy, price, amount, change = 1;
-     String Number_Contact_Both;
-     int pickup;
-     
+    String contact_Number;
+    String correctionDetail;
+    double copy, price, amount, change = 1;
+    String Number_Contact_Both;
+    int pickup;
+    
 
 	
 	//Wife Documents Info
-		 String Wife_First;
-		 String Wife_Middle;
-		 String Wife_Last;
-		static String Wife_Date_Of_Birth;
-		static String Wife_Age;
-		static String Wife_Place_Of_Birth;
-	        static String Wife_Sex;
-		static String Wife_Citizenship;
-		static String Wife_Provice;
-		static String Wife_City;
-		static String Wife_Barangay;
-		static String Wife_Street;
-		static String Wife_Religion;
-		static String Wife_Status;
-		static String Wife_Father;
-		static String Wife_Father_Citizenship;
-		static String Wife_Mother;
-		static String Wife_Mother_Citizenship;
-		
-		//Husband Documents Info
-		static String Husband_First;
-		static String Husband_Middle;
-		static String Husband_Last;
-		static String Husband_Date_Of_Birth;
-		static String Husband_Age;
-		static String Husband_Place_Of_Birth;
-		static String Husband_Sex;
-		static String Husband_Citizenship;
-		static String Husband_Provice;
-		static String Husband_City;
-		static String Husband_Barangay;
-		static String Husband_Street;
-		static String Husband_Religion;
-		static String Husband_Status;
-		static String Husband_Father;
-		static String Husband_Father_Citizenship;
-		static String Husband_Mother;
-		static String Husband_Mother_Citizenship;
-		static String place_Marriage;
-		static String date_Marriage;
+	private static String Wife_First;
+    private static String Wife_Middle;
+    private static String Wife_Last;
+    private static String Wife_Date_Of_Birth;
+    private static String Wife_Age;
+    private static String Wife_Place_Of_Birth;
+    private static String Wife_Sex;
+    private static String Wife_Citizenship;
+    private static String Wife_Provice;
+    private static String Wife_City;
+    private static String Wife_Barangay;
+    private static String Wife_Street;
+    private static String Wife_Religion;
+    private static String Wife_Status;
+    private static String Wife_Father;
+    private static String Wife_Father_Citizenship;
+    private static String Wife_Mother;
+    private static String Wife_Mother_Citizenship;
+
+    // Husband Documents Info
+    private static String Husband_First;
+    private static String Husband_Middle;
+    private static String Husband_Last;
+    private static String Husband_Date_Of_Birth;
+    private static String Husband_Age;
+    private static String Husband_Place_Of_Birth;
+    private static String Husband_Sex;
+    private static String Husband_Citizenship;
+    private static String Husband_Provice;
+    private static String Husband_City;
+    private static String Husband_Barangay;
+    private static String Husband_Street;
+    private static String Husband_Religion;
+    private static String Husband_Status;
+    private static String Husband_Father;
+    private static String Husband_Father_Citizenship;
+    private static String Husband_Mother;
+    private static String Husband_Mother_Citizenship;
+    private static String place_Marriage;
+    private static String date_Marriage;
+
+
+        
+
+
 		//Wife Document Setter
 
-		public void setWifeName(String Wife_First){
-			this.Wife_First = Wife_First;
+		public void setWifeName(String wifeFirst){
+			Wife_First = wifeFirst;
 		}
-		public void setWifeMiddle(String Wife_Middle){
-			this.Wife_Middle = Wife_Middle;
+		public void setWifeMiddle(String wifeMiddle){
+			Wife_Middle = wifeMiddle;
 		}
-		public void setWifeLast(String Wife_Last){
-			this.Wife_Last = Wife_Last;
+		public void setWifeLast(String wifeLast){
+			Wife_Last = wifeLast;
 		}
 		public void setWifeDateOfBirth(String dateofbirth){
 			Wife_Date_Of_Birth = dateofbirth;
@@ -87,8 +92,8 @@ public class MarriageCertificate{
 		public void setWifeBarangay(String wifebarangay){
 		  Wife_Barangay = wifebarangay;
 		}
-		public void setWifeStreet(String wifestreet){
-			Wife_Street = wifestreet;
+		public void setWifeStreet(String wifeStreet){
+			Wife_Street = wifeStreet;
 		}
 		public void setWifeReligion(String wifeReligion){
 	       Wife_Religion = wifeReligion;

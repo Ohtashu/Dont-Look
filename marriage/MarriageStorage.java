@@ -4,13 +4,14 @@
  */
 package marriage;
 import java.util.*;
+import java.util.zip.CRC32;
 /**
  *
  * @author flore
  */
 public class MarriageStorage extends MarriageCertificate {
 private HashMap <String, String> Marriage_Storage = new HashMap <String, String>();
-
+MarriageCertificate certificate = new MarriageCertificate();
 String SMName;
 
 public String getSMName(){
@@ -63,7 +64,7 @@ Marriage_Storage.put("28" + getSMName(), getDateMarriage());
 
 }
 
-void printingForm(){
+public void printingForm(){
 		        System.out.println("=======================================================================================================================");
 		        System.out.println("\t\t\t\t\tRepublic of the Philippines\n\t\t\t\tOFFICE OF THE CIVIL REGISTRAR GENERAL\n\t\t\t\t\tCERTIFICATE OF MARRIAGE");
 		        System.out.println("=======================================================================================================================");	 
@@ -71,7 +72,7 @@ void printingForm(){
 		        System.out.println("\t\t\t\t\t|WIFE\t\t\t\t\t|HUSBAND");
 		        System.out.println("-----------------------------------------------------------------------------------------------------------------------");
 		        System.out.printf("Name of Contracting Parties\t\t|(1a) %-14s|(1b) %-14s|(14a) %-14s|(14b) %-14s\n\t\t\t\t\t|(1c) %-34s|(14c) %-14s\n", 
-		        					Marriage_Storage.get("1a" + getSMName()), Marriage_Storage.get("14a" + getSMName()), Marriage_Storage.get("1b" + getWifeMiddle()), Marriage_Storage.get("14b" + getHusbandMiddle()),Marriage_Storage.get("1c" + getWifeLast()),Marriage_Storage.get("14c" + getHusbandLast()));
+		        					Marriage_Storage.get("1a" + getSMName()), Marriage_Storage.get("14a" + getSMName()), Marriage_Storage.get("1b" + getSMName()), Marriage_Storage.get("14b" + getSMName()),Marriage_Storage.get("1c" + getSMName()),Marriage_Storage.get("14c" + getSMName()));
 		        System.out.println("-----------------------------------------------------------------------------------------------------------------------");
 		        System.out.printf("Date of Birth/Age\t\t\t|(2) %-15s|(3) %-15s|(15) %-15s|(16) %-15s\n",Marriage_Storage.get("15" + getSMName()),Marriage_Storage.get("2" + getSMName()),Marriage_Storage.get("16" + getSMName()), Marriage_Storage.get("3" + getSMName()));
 		        System.out.println("-----------------------------------------------------------------------------------------------------------------------");
