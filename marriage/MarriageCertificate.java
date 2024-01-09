@@ -12,46 +12,46 @@ public class MarriageCertificate{
 
 	
 	//Wife Documents Info
-		String Wife_First;
-		String Wife_Middle;
-		String Wife_Last;
-		String Wife_Date_Of_Birth;
-		String Wife_Age;
-		String Wife_Place_Of_Birth;
-	        String Wife_Sex;
-		String Wife_Citizenship;
-		String Wife_Provice;
-		String Wife_City;
-		String Wife_Barangay;
-		String Wife_Street;
-		String Wife_Religion;
-		String Wife_Status;
-		String Wife_Father;
-		String Wife_Father_Citizenship;
-		String Wife_Mother;
-		String Wife_Mother_Citizenship;
+		 String Wife_First;
+		 String Wife_Middle;
+		 String Wife_Last;
+		static String Wife_Date_Of_Birth;
+		static String Wife_Age;
+		static String Wife_Place_Of_Birth;
+	        static String Wife_Sex;
+		static String Wife_Citizenship;
+		static String Wife_Provice;
+		static String Wife_City;
+		static String Wife_Barangay;
+		static String Wife_Street;
+		static String Wife_Religion;
+		static String Wife_Status;
+		static String Wife_Father;
+		static String Wife_Father_Citizenship;
+		static String Wife_Mother;
+		static String Wife_Mother_Citizenship;
 		
 		//Husband Documents Info
-		String Husband_First;
-		String Husband_Middle;
-		String Husband_Last;
-		String Husband_Date_Of_Birth;
-		String Husband_Age;
-		String Husband_Place_Of_Birth;
-		String Husband_Sex;
-		String Husband_Citizenship;
-		String Husband_Provice;
-		String Husband_City;
-		String Husband_Barangay;
-		String Husband_Street;
-		String Husband_Religion;
-		String Husband_Status;
-		String Husband_Father;
-		String Husband_Father_Citizenship;
-		String Husband_Mother;
-		String Husband_Mother_Citizenship;
-		String place_Marriage;
-		String date_Marriage;
+		static String Husband_First;
+		static String Husband_Middle;
+		static String Husband_Last;
+		static String Husband_Date_Of_Birth;
+		static String Husband_Age;
+		static String Husband_Place_Of_Birth;
+		static String Husband_Sex;
+		static String Husband_Citizenship;
+		static String Husband_Provice;
+		static String Husband_City;
+		static String Husband_Barangay;
+		static String Husband_Street;
+		static String Husband_Religion;
+		static String Husband_Status;
+		static String Husband_Father;
+		static String Husband_Father_Citizenship;
+		static String Husband_Mother;
+		static String Husband_Mother_Citizenship;
+		static String place_Marriage;
+		static String date_Marriage;
 		//Wife Document Setter
 
 		public void setWifeName(String Wife_First){
@@ -651,49 +651,17 @@ public class MarriageCertificate{
 	                break;
 	    }
 	}
-	void printingForm(){
-		System.out.println("=======================================================================================================================");
-		        System.out.println("\t\t\t\t\tRepublic of the Philippines\n\t\t\t\tOFFICE OF THE CIVIL REGISTRAR GENERAL\n\t\t\t\t\tCERTIFICATE OF MARRIAGE");
-		        System.out.println("=======================================================================================================================");	 
-		        System.out.println("-----------------------------------------------------------------------------------------------------------------------");
-		        System.out.println("\t\t\t\t\t|WIFE\t\t\t\t\t|HUSBAND");
-		        System.out.println("-----------------------------------------------------------------------------------------------------------------------");
-		        System.out.printf("Name of Contracting Parties\t\t|(1a) %-14s|(1b) %-14s|(14a) %-14s|(14b) %-14s\n\t\t\t\t\t|(1c) %-34s|(14c) %-14s\n", 
-		        					getWifeFirst(), getHusbandFirst(),getWifeMiddle(), getHusbandMiddle(),getWifeLast(),getHusbandLast());
-		        System.out.println("-----------------------------------------------------------------------------------------------------------------------");
-		        System.out.printf("Date of Birth/Age\t\t\t|(2) %-15s|(3) %-15s|(15) %-15s|(16) %-15s\n",getHusbandDateOfBirth(),getWifeDateOfBirth(),getWifeAge(), getHusbandAge());
-		        System.out.println("-----------------------------------------------------------------------------------------------------------------------");
-		        System.out.printf("Place of Birth\t\t\t\t|(4) %-35s|(17) %-15s\n", getHusbandPlaceOfBirth(),getWifePlaceOfBirth());
-		        System.out.println("-----------------------------------------------------------------------------------------------------------------------");
-		        System.out.printf("Sex (Male/Female)\t\t\t|(5) %-30s\t|(18) %-10s\n", getHusbandSex(), getWifeSex());
-		        System.out.println("-----------------------------------------------------------------------------------------------------------------------");
-		        System.out.printf("Citizenship\t\t\t\t|(6) %-30s\t|(19) %-20s\n",getHusbandCitizen(),getWifeCitzen());
-		        System.out.println("-----------------------------------------------------------------------------------------------------------------------");
-		        System.out.printf("Residence\t\t\t\t|(7a) %-14s|(7a) %-14s|(20a) %-14s|(20b) %-14s\n\t\t\t\t\t|(7c) %-14s|(7d) %-14s|(20c) %-14s|(20d) %-14s",
-		        		getWifeProvince(), getHusbandProvince(),getWifeCity(),
-		        		getHusbandCity(),getWifeBarangay(),getHusbandBarangay(),getWifeStreet(),getHusbandStreet());	   
-		        System.out.println("\n-----------------------------------------------------------------------------------------------------------------------");
-		        System.out.printf("Religion\t\t\t\t|(8) %-35s|(21) %-20s",getWifeReligion(), getHusbandReligion());
-		        System.out.println("\n-----------------------------------------------------------------------------------------------------------------------");
-		        System.out.printf("Civil Status\t\t\t\t|(9) %-35s|(22) %-15s",getWifeStatus(),getHusbandStatus());
-		        System.out.println("\n-----------------------------------------------------------------------------------------------------------------------");
-		        System.out.printf("Name of Father\t\t\t\t|(10) %-34s|(23) %-15s", getWifeFather(), getHusbandFather());
-		        System.out.println("\n-----------------------------------------------------------------------------------------------------------------------");
-		        System.out.printf("Citizenship\t\t\t\t|(11) %-34s|(24) %-15s", getWifeFatherCitizen(),getHusbandFatherCitizen());
-		        System.out.println("\n-----------------------------------------------------------------------------------------------------------------------");
-		        System.out.println("Place of Marriage: "+ getPlaceMarriage());
-		        System.out.print("Date Of Marriage: "+ getDateMarriage());
-		        System.out.println("\n-----------------------------------------------------------------------------------------------------------------------");
-	}
+	
 	public void printerlol() {
+            
         Scanner scanner = new Scanner(System.in);
-       
+        MarriageStorage marriageStorage = new MarriageStorage();
         System.out.print("\t\t\t\tDo you wish to get the copy of the Certificate?"
                    + "\n\t\t\t\t\t\t[1] Yes"
                    + "\n\t\t\t\t\t\t[2] No: ");
            int certificate_printed = scanner.nextInt();
            if(certificate_printed == 1){
-               printingForm();
+               
                System.out.print("\t\t\t\tWhat kind of Method you want to choose"
                        + "\n\t\t\t\t\t\t[1] Pick Up"
                        + "\n\t\t\t\t\t\t[2] Delivery: ");

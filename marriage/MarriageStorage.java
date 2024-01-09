@@ -12,54 +12,91 @@ public class MarriageStorage extends MarriageCertificate {
 private HashMap <String, String> Marriage_Storage = new HashMap <String, String>();
 
 String SMName;
-String getSMName(){
+
+public String getSMName(){
     return SMName;
 } 
-void setSMName(String SMName){
+public void setSMName(String SMName){
     this.SMName = SMName;
 }
 public void SMarriageinfo(){
- Marriage_Storage.put("1a" + getSMName(), getWifeFirst());
- Marriage_Storage.put("1b" + getSMName(), getWifeMiddle());
- Marriage_Storage.put("1c" + getSMName(), getWifeLast());
+Marriage_Storage.put("1a" + getSMName(), getWifeFirst());
+Marriage_Storage.put("1b" + getSMName(), getWifeMiddle());
+Marriage_Storage.put("1c" + getSMName(), getWifeLast());
 Marriage_Storage.put("2" + getSMName(), getWifeDateOfBirth());
- Marriage_Storage.put("3" + getSMName(), getWifeAge()); 
- Marriage_Storage.put("4" + getSMName(), getWifePlaceOfBirth());
- Marriage_Storage.put("5" + getSMName(),  getWifeSex());
+Marriage_Storage.put("3" + getSMName(), getWifeAge()); 
+Marriage_Storage.put("4" + getSMName(), getWifePlaceOfBirth());
+Marriage_Storage.put("5" + getSMName(),  getWifeSex());
 Marriage_Storage.put("6" + getSMName(), getWifeCitzen());
- Marriage_Storage.put("7a" + getSMName(), getWifeProvince());
- Marriage_Storage.put("7b" + getSMName(),  getWifeCity());
+Marriage_Storage.put("7a" + getSMName(), getWifeProvince());
+Marriage_Storage.put("7b" + getSMName(),  getWifeCity());
 Marriage_Storage.put("7c" + getSMName(), getWifeBarangay());
- Marriage_Storage.put("7d" + getSMName(),getWifeStreet());
- Marriage_Storage.put("8" + getSMName(),  getWifeReligion());
+Marriage_Storage.put("7d" + getSMName(),getWifeStreet());
+Marriage_Storage.put("8" + getSMName(),  getWifeReligion());
 Marriage_Storage.put("9" + getSMName(), getWifeStatus());
- Marriage_Storage.put("10" + getSMName(),getWifeFather());
- Marriage_Storage.put("11" + getSMName(),  getWifeFatherCitizen());
+Marriage_Storage.put("10" + getSMName(),getWifeFather());
+Marriage_Storage.put("11" + getSMName(),  getWifeFatherCitizen());
 Marriage_Storage.put("12" + getSMName(), getWifeMother());
- Marriage_Storage.put("13" + getSMName(),getWifeMotherCitizen());
+Marriage_Storage.put("13" + getSMName(),getWifeMotherCitizen());
 
 //HUSBAND
 Marriage_Storage.put("14a" + getSMName(), getHusbandFirst());
- Marriage_Storage.put("14b" + getSMName(), getHusbandMiddle());
- Marriage_Storage.put("14c" + getSMName(), getHusbandLast());
+Marriage_Storage.put("14b" + getSMName(), getHusbandMiddle());
+Marriage_Storage.put("14c" + getSMName(), getHusbandLast());
 Marriage_Storage.put("15" + getSMName(), getHusbandDateOfBirth());
- Marriage_Storage.put("16" + getSMName(), getHusbandAge());
- Marriage_Storage.put("17" + getSMName(), getHusbandPlaceOfBirth());
+Marriage_Storage.put("16" + getSMName(), getHusbandAge());
+Marriage_Storage.put("17" + getSMName(), getHusbandPlaceOfBirth());
 Marriage_Storage.put("18" + getSMName(), getHusbandSex());
- Marriage_Storage.put("19" + getSMName(), getHusbandCitizen());
- Marriage_Storage.put("20a" + getSMName(),  getHusbandProvince());
+Marriage_Storage.put("19" + getSMName(), getHusbandCitizen());
+Marriage_Storage.put("20a" + getSMName(),  getHusbandProvince());
 Marriage_Storage.put("20b" + getSMName(),  getHusbandCity());
- Marriage_Storage.put("20c" + getSMName(), getHusbandBarangay());
- Marriage_Storage.put("20d" + getSMName(), getHusbandStreet());
+Marriage_Storage.put("20c" + getSMName(), getHusbandBarangay());
+Marriage_Storage.put("20d" + getSMName(), getHusbandStreet());
 Marriage_Storage.put("21" + getSMName(), getHusbandReligion());
- Marriage_Storage.put("22" + getSMName(), getHusbandStatus());
- Marriage_Storage.put("23" + getSMName(),  getHusbandFather());
+Marriage_Storage.put("22" + getSMName(), getHusbandStatus());
+Marriage_Storage.put("23" + getSMName(),  getHusbandFather());
 Marriage_Storage.put("24" + getSMName(),   getHusbandFatherCitizen());
- Marriage_Storage.put("25" + getSMName(), getHusbandMother());
- Marriage_Storage.put("26" + getSMName(), getHusbandMotherCitizen());
-
+Marriage_Storage.put("25" + getSMName(), getHusbandMother());
+Marriage_Storage.put("26" + getSMName(), getHusbandMotherCitizen());
+Marriage_Storage.put("27" + getSMName(),      getPlaceMarriage());
+Marriage_Storage.put("28" + getSMName(), getDateMarriage());
 
 }
+
+void printingForm(){
+		        System.out.println("=======================================================================================================================");
+		        System.out.println("\t\t\t\t\tRepublic of the Philippines\n\t\t\t\tOFFICE OF THE CIVIL REGISTRAR GENERAL\n\t\t\t\t\tCERTIFICATE OF MARRIAGE");
+		        System.out.println("=======================================================================================================================");	 
+		        System.out.println("-----------------------------------------------------------------------------------------------------------------------");
+		        System.out.println("\t\t\t\t\t|WIFE\t\t\t\t\t|HUSBAND");
+		        System.out.println("-----------------------------------------------------------------------------------------------------------------------");
+		        System.out.printf("Name of Contracting Parties\t\t|(1a) %-14s|(1b) %-14s|(14a) %-14s|(14b) %-14s\n\t\t\t\t\t|(1c) %-34s|(14c) %-14s\n", 
+		        					Marriage_Storage.get("1a" + getSMName()), Marriage_Storage.get("14a" + getSMName()), Marriage_Storage.get("1b" + getWifeMiddle()), Marriage_Storage.get("14b" + getHusbandMiddle()),Marriage_Storage.get("1c" + getWifeLast()),Marriage_Storage.get("14c" + getHusbandLast()));
+		        System.out.println("-----------------------------------------------------------------------------------------------------------------------");
+		        System.out.printf("Date of Birth/Age\t\t\t|(2) %-15s|(3) %-15s|(15) %-15s|(16) %-15s\n",Marriage_Storage.get("15" + getSMName()),Marriage_Storage.get("2" + getSMName()),Marriage_Storage.get("16" + getSMName()), Marriage_Storage.get("3" + getSMName()));
+		        System.out.println("-----------------------------------------------------------------------------------------------------------------------");
+		        System.out.printf("Place of Birth\t\t\t\t|(4) %-35s|(17) %-15s\n", Marriage_Storage.get("17" + getSMName()),Marriage_Storage.get("4" + getSMName()));
+		        System.out.println("-----------------------------------------------------------------------------------------------------------------------");
+		        System.out.printf("Sex (Male/Female)\t\t\t|(5) %-30s\t|(18) %-10s\n", Marriage_Storage.get("18" + getSMName()), Marriage_Storage.get("5" + getSMName()));
+		        System.out.println("-----------------------------------------------------------------------------------------------------------------------");
+		        System.out.printf("Citizenship\t\t\t\t|(6) %-30s\t|(19) %-20s\n",Marriage_Storage.get("19" + getSMName()),Marriage_Storage.get("6" + getSMName()));
+		        System.out.println("-----------------------------------------------------------------------------------------------------------------------");
+		        System.out.printf("Residence\t\t\t\t|(7a) %-14s|(7a) %-14s|(20a) %-14s|(20b) %-14s\n\t\t\t\t\t|(7c) %-14s|(7d) %-14s|(20c) %-14s|(20d) %-14s",
+		        		Marriage_Storage.get("7a" + getSMName()), Marriage_Storage.get("20a" + getSMName()),Marriage_Storage.get("7b" + getSMName()),
+		        		Marriage_Storage.get("20b" + getSMName()),Marriage_Storage.get("7c" + getSMName()),Marriage_Storage.get("10c" + getSMName()),Marriage_Storage.get("7d" + getSMName()),Marriage_Storage.get("20d" + getSMName()));	   
+		        System.out.println("\n-----------------------------------------------------------------------------------------------------------------------");
+		        System.out.printf("Religion\t\t\t\t|(8) %-35s|(21) %-20s",Marriage_Storage.get("8" + getSMName()), Marriage_Storage.get("21" + getSMName()));
+		        System.out.println("\n-----------------------------------------------------------------------------------------------------------------------");
+		        System.out.printf("Civil Status\t\t\t\t|(9) %-35s|(22) %-15s",Marriage_Storage.get("9" + getSMName()),Marriage_Storage.get("22" + getSMName()));
+		        System.out.println("\n-----------------------------------------------------------------------------------------------------------------------");
+		        System.out.printf("Name of Father\t\t\t\t|(10) %-34s|(23) %-15s", Marriage_Storage.get("10" + getSMName()), Marriage_Storage.get("23" + getSMName()));
+		        System.out.println("\n-----------------------------------------------------------------------------------------------------------------------");
+		        System.out.printf("Citizenship\t\t\t\t|(11) %-34s|(24) %-15s", Marriage_Storage.get("11" + getSMName()),Marriage_Storage.get("24" + getSMName()));
+		        System.out.println("\n-----------------------------------------------------------------------------------------------------------------------");
+		        System.out.println("Place of Marriage: "+ Marriage_Storage.get("27" + getSMName()));
+		        System.out.print("Date Of Marriage: "+ Marriage_Storage.get("28" + getSMName()));
+		        System.out.println("\n-----------------------------------------------------------------------------------------------------------------------");
+	}
 
 
 

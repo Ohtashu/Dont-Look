@@ -225,9 +225,13 @@ public class deathCertificate{
 
 	        System.out.print("\t\t\t\t\t1c. Last Name: ");
 	         lastName = scn.nextLine();
-
+                 do{
 	        System.out.print("\t\t\t\t\t2.Sex (M/F): ");
 	         sex = scn.nextLine();
+                    if(sex.equalsIgnoreCase("f") ||  sex.equalsIgnoreCase("m")){
+                        break;
+                    }
+                 }while(true);
 
 	        System.out.print("\t\t\t\t\t3. Date of Death (DD/MM/YYYY): ");
 	       dateOfDeath = scn.nextLine();
@@ -263,11 +267,11 @@ public class deathCertificate{
 	         motherName = scn.nextLine();
 	        
 	     //Medical Certificate
-        System.out.print("\n\t\t\t------------------------------------------------------------------------------------------------------------------------");
-           System.out.println("\n\t\t\t\t\tMEDICAL CERTIFICATE");
-        System.out.print("\t\t\t------------------------------------------------------------------------------------------------------------------------");
-           System.out.println("n\t\t\t\t\tIf the deceased is ages 0-7 days fill out number 14-19a. If not, leave blank.\n");
-        System.out.print("\n\t\t\t------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("\n\t\t\t------------------------------------------------------------------------------------------------------------------------");
+           System.out.println("\n\t\t\t\t\t\t\t\t\tMEDICAL CERTIFICATE");
+        System.out.println("\n\t\t\t------------------------------------------------------------------------------------------------------------------------");
+           System.out.println("\n\t\t\t\t\t\tIf the deceased is ages 0-7 days fill out number 14-19a. If not, leave blank.");
+        System.out.println("\n\t\t\t------------------------------------------------------------------------------------------------------------------------");
             if(ageAtDeath.matches("[0-7]Days")){
 
 	        System.out.print("\t\t\t\t\t14. Age of Mother: ");
@@ -288,27 +292,27 @@ public class deathCertificate{
            System.out.print("\t\t\t\t\t19a. Cause of Death: ");
            causeOfDeath = scn.nextLine();
             }else{
-            System.out.print("\t\t\t\t\t14. Age of Mother: ");
-            System.out.print("\t\t\t\t\t\n15. Method of delivery(Normal spontaneus vertex, if others, specify): ");
-            System.out.print("\t\t\t\t\t\n16. Length of pregnancy(In completed weeks):");
-            System.out.print("\t\t\t\t\t\n17. Type of birth (Single, Twin, Triplet, others.):\n");
+            System.out.println("\t\t\t\t\t14. Age of Mother: ");
+            System.out.println("\t\t\t\t\t15. Method of delivery(Normal spontaneus vertex, if others, specify): ");
+            System.out.println("\t\t\t\t\t16. Length of pregnancy(In completed weeks):");
+            System.out.println("\t\t\t\t\t17. Type of birth (Single, Twin, Triplet, others.): ");
                 }
 
                  System.out.print("\n\t\t\t------------------------------------------------------------------------------------------------------------------------\n");
-           System.out.println("\n\t\t\t\t\tIf the deceased is female aged 15-49 years days fill out number 19-19c. If not, leave blank.\n");
+           System.out.println("\n\t\t\t\t\tIf the deceased is female aged 15-49 years days fill out number 19-19c. If not, leave blank.");
                  System.out.print("\n\t\t\t------------------------------------------------------------------------------------------------------------------------\n");
           if(ageAtDeath.matches("[2-4][0-9]|[1-4][5-9]" ) && sex.equalsIgnoreCase("f")) {
               ok = true;
-           System.out.print("\t\t\t\t\t\19b. Cause of Death: ");
+           System.out.print("\t\t\t\t\t19b. Cause of Death: ");
            causeD = scn.nextLine();
            
         //Maternal Condition
-           System.out.print("\t\t\t\t\t19c. Maternal Condition:");
-           System.out.println("\t\t\t\t\t\\n[a] Pregnant, not labour");
+           System.out.println("\t\t\t\t\t19c. Maternal Condition: ");
+           System.out.println("\t\t\t\t\t[a] Pregnant, not labour");
            System.out.println("\t\t\t\t\t[b] Pregnat, in labour");
            System.out.println("\t\t\t\t\t[c] Less than 42 days after delivery");
            System.out.println("\t\t\t\t\t[d] 42 days t0 1 year after delivery");
-           System.out.println("\t\t\t\t\t [e] None of the choices:");
+           System.out.println("\t\t\t\t\t[e] None of the choices:");
            maternalCondition = scn.nextLine();  
            if(maternalCondition.equalsIgnoreCase("a")){
                maternalCondition = "\t\t\t\t\tPregnat, not labour";
@@ -328,7 +332,7 @@ public class deathCertificate{
         }else{
                System.out.println("\t\t\t\t\tInvalid input! ");
         }  
-           System.out.print("\t\t\t\t\t19d. Death by External causes:\n");
+           System.out.print("\t\t\t\t\t19d. Death by External causes: ");
        	   System.out.println("\t\t\t\t\t[a] Manner of death(Homicide, Suicide, Accident, Legal Intervention, others) ");
        	   System.out.println("\t\t\t\t\t[b] Place of Occurance of External Cause(e.g. home, farm, factory, street, sea, others)");
            
@@ -347,9 +351,9 @@ public class deathCertificate{
           }
     }else{
               
-            System.out.print("\t\t\t\t\t19b. Cause of Death: ");
-            System.out.print("\t\t\t\t\t19c. Maternal Condition:");
-            System.out.println("\t\t\t\t\t\n[a] Pregnant, not labour");
+            System.out.println("\t\t\t\t\t19b. Cause of Death: ");
+            System.out.println("\t\t\t\t\t19c. Maternal Condition:");
+            System.out.println("\t\t\t\t\t[a] Pregnant, not labour");
             System.out.println("\t\t\t\t\t[b] Pregnat, in labour");
             System.out.println("\t\t\t\t\t[c] Less than 42 days after delivery");
             System.out.println("\t\t\t\t\t[d] 42 days t0 1 year after delivery");
@@ -366,7 +370,7 @@ public class deathCertificate{
            System.out.print("\t\t\t\t\t19e. Cause of Death: ");
            cause = scn.next();
  //DeathExternal Option
-           System.out.print("\t\t\t\t\t19f. Death by external causes:\n");
+           System.out.print("\t\t\t\t\t19f. Death by external causes: ");
    		System.out.println("\t\t\t\t\t[a] Manner of death(Homicide, Suicide, Accident, Legal Intervention, others) ");
    		System.out.println("\t\t\t\t\t[b] Place of Occurance of External Cause(e.g. home, farm, factory, street, sea, others)");
    		  deathExternal = scn.next().toUpperCase();  
@@ -390,7 +394,7 @@ public class deathCertificate{
             }
             
 
-           System.out.print("20.Autopsy(Y/N): ");
+           System.out.print("\t\t\t\t\t20.Autopsy(Y/N): ");
    		 autopsy = scn.next();
    	//attendant option
    		System.out.println("\t\t\t\t\t21a. Attendant: ");
@@ -436,33 +440,33 @@ public class deathCertificate{
 	}
 	//Display for Death
 	public void display() {
-		 System.out.println("1a. First Name: " + firstName);
-	         System.out.println("1b. Middle Name: "  +middleName);
-	         System.out.println("1c. Last Name: "  + lastName);
-	         System.out.println("2.Sex (M/F): " + sex);
-	         System.out.println("3. Date of Death (DD/MM/YYYY): " + dateOfDeath);
-		 System.out.println("4. Date of Birth (DD/MM/YYYY): " + dateOfBirth);
-		 System.out.println("5. Age at the time of death: " + ageAtDeath);
-		 System.out.println("6. Place of Death: " + placeOfDeath);
-		 System.out.println("7. Civil Status: " + civilStatus);
-		 System.out.println("8. Religion: " + religion);
-		 System.out.println("9. Citizenship: " + citizenship);
-		 System.out.println("10. Occupation: " + occupation);
-		 System.out.println("11. Residence: " + residence);
-		 System.out.println("12. Name of Father (First, Middle, Last): " + fatherName);
-		 System.out.println("13. Name of Mother (First, Middle, Last): " + motherName );
-		 System.out.println("14. Age of Mother: " + ageOfMother);
-		 System.out.println("15. Method of delivery(Normal spontaneus vertex, if others, specify): " + mdelivery);
-		 System.out.println("16. Length of pregnancy(In completed weeks):" + lengthOfPreg);
-		 System.out.println("17. Type of birth (Single, Twin, Triplet, etc.): " + typeOfbirth);
-		 System.out.println("18. If multiple birth child was(first, Second, Third, Others):" + multiBirth);
-		 System.out.println("19a. Cause of Death: " + causeOfDeath);
-		 System.out.println("19b. Cause of Death: " + causeD);
-                 System.out.println("19c. Maternal Condition:" + maternalCondition);
-                 System.out.println("19d. Death by External causes:" + DExternal);
-                 System.out.println("19e. Cause of Death: " + cause);
-		 System.out.println("21a. Attendant: " + attendant);
-		 System.out.println("21b. If attendant press [Y] the state duration(MM/DD/YY), else [N] " + duration);
+		 System.out.println("\t\t\t\t\t1a. First Name: " + firstName);
+	         System.out.println("\t\t\t\t\t1b. Middle Name: "  +middleName);
+	         System.out.println("\t\t\t\t\t1c. Last Name: "  + lastName);
+	         System.out.println("\t\t\t\t\t2.Sex (M/F): " + sex);
+	         System.out.println("\t\t\t\t\t3. Date of Death (DD/MM/YYYY): " + dateOfDeath);
+		 System.out.println("\t\t\t\t\t4. Date of Birth (DD/MM/YYYY): " + dateOfBirth);
+		 System.out.println("\t\t\t\t\t5. Age at the time of death: " + ageAtDeath);
+		 System.out.println("\t\t\t\t\t6. Place of Death: " + placeOfDeath);
+		 System.out.println("\t\t\t\t\t7. Civil Status: " + civilStatus);
+		 System.out.println("\t\t\t\t\t8. Religion: " + religion);
+		 System.out.println("\t\t\t\t\t9. Citizenship: " + citizenship);
+		 System.out.println("\t\t\t\t\t10. Occupation: " + occupation);
+		 System.out.println("\t\t\t\t\t11. Residence: " + residence);
+		 System.out.println("\t\t\t\t\t12. Name of Father (First, Middle, Last): " + fatherName);
+		 System.out.println("\t\t\t\t\t13. Name of Mother (First, Middle, Last): " + motherName );
+		 System.out.println("\t\t\t\t\t14. Age of Mother: " + ageOfMother);
+		 System.out.println("\t\t\t\t\t15. Method of delivery(Normal spontaneus vertex, if others, specify): " + mdelivery);
+		 System.out.println("\t\t\t\t\t16. Length of pregnancy(In completed weeks):" + lengthOfPreg);
+		 System.out.println("\t\t\t\t\t17. Type of birth (Single, Twin, Triplet, etc.): " + typeOfbirth);
+		 System.out.println("\t\t\t\t\t18. If multiple birth child was(first, Second, Third, Others):" + multiBirth);
+		 System.out.println("\t\t\t\t\t19a. Cause of Death: " + causeOfDeath);
+		 System.out.println("\t\t\t\t\t19b. Cause of Death: " + causeD);
+                 System.out.println("\t\t\t\t\t19c. Maternal Condition:" + maternalCondition);
+                 System.out.println("\t\t\t\t\t19d. Death by External causes:" + DExternal);
+                 System.out.println("\t\t\t\t\t19e. Cause of Death: " + cause);
+		 System.out.println("\t\t\t\t\t21a. Attendant: " + attendant);
+		 System.out.println("\t\t\t\t\t21b. If attendant press [Y] the state duration(MM/DD/YY), else [N] " + duration);
 			
 	}
 	

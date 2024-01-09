@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class Government_Agency {
 
-    static DeathCertificate dc = new DeathCertificate(); //For death insta
+    static deathCertificate dc = new deathCertificate(); //For death insta
     static StorageDeath STD = new StorageDeath();
     static int ContinueOrEdit;
     static Admin admin = new Admin();
@@ -24,6 +24,8 @@ public class Government_Agency {
     static double change, Copy, Price, Amount, T8, CoE, Navi, New = 1;
     static String TBP, Fname, Addresses;
     static Scanner scn = new Scanner(System.in);
+    static MarriageCertificate certificate = new MarriageCertificate();
+    static MarriageStorage storage = new MarriageStorage();
     
     
     public static void main(String[] args) throws Exception, IOException{
@@ -42,20 +44,19 @@ public class Government_Agency {
                 + "\t[1]Admin"
                 + "\t\t[2]Guest");
         System.out.print("\t: ");
-        scn.nextLine();
-        String identifier = scn.nextLine();
+        String identifier = scn.next();
 
         if(identifier.equals("1")){
             
     
             admin.AdminW();
             BStore.BStore.clear();
-            BStore.BStore.putAll(admin.Admin_Store);
+            BStore.BStore.putAll(admin.BAdmin_Store);
 
         }
         else if(identifier.equals("2")){
             
-        }
+        
         
         System.out.print("\n\t\t\t========================================================================================================================");
         
@@ -234,7 +235,7 @@ public class Government_Agency {
                      
                      BStore.setName( B.getFname() + " " + B.getMname() + " " + B.getLname());
                      BStore.BStore();
-                     admin.Admin_Store.putAll(BStore.BStore);
+                     admin.BAdmin_Store.putAll(BStore.BStore);
                      BStore.PrintCopy();
                      PrintCopy();
 
@@ -339,6 +340,7 @@ public class Government_Agency {
                     	  dc.setlengthOfpreg(change);
                     	  break;
                       case"17":
+                          
                     	  dc.settypeOfbirth(change);
                     	  break;
                       case"18":
@@ -376,7 +378,7 @@ public class Government_Agency {
                   
                   STD.setInfo(dc.getfirstName()+ " " + dc.getmiddleName()+ " " + dc.getlastName());
                   STD.Info();
-                  STD.forEach();
+               
                   STD.printcopy();
                   PrintCopy();
                 }
@@ -393,23 +395,23 @@ public class Government_Agency {
                 //Case two for Printing Copy of Existing file
             case 2:
                
-               // a.AdminW();
                 System.out.print("\t\t\t\t\tFirst Name of the Certificate: ");
                 scn.nextLine();
+                Fname = scn.nextLine();
                 
       
 
-                //if(BStore.BStore.containsValue(Fname)){
+                    if(BStore.BStore.containsValue(Fname)){
                     
                     
                     System.out.println("\t\t\t\t\t\t\t\t\t\tExisting File: " + BStore.getName());
                     PrintCopy();
                     
-               // }else{
+               }else{
                     System.out.println("\t\t\t\t\t\t\t\t\tNone existing Certificate!");
-                //}
+                }
                 
-                
+                System.out.println("----------------------------------------------------------");
                 System.out.print("\t\t\t\t\t\t\t\t\t\tDo you wish to continue?"
                                    + "\n\t\t\t\t\t\t\t\t\t[1] New Transaction"
                                    + "\n\t\t\t\t\t\t\t\t\t[2] Exit Program");
@@ -417,8 +419,8 @@ public class Government_Agency {
                        
                 break;
             }
-        }while(New == 1);
-        
+        }
+       }while(New == 1);
     }
   
 
@@ -456,11 +458,14 @@ public class Government_Agency {
 
     static void process() {
         Scanner scanner = new Scanner(System.in);
-        MarriageCertificate certificate = new MarriageCertificate();
-    
-
+        
+        
         certificate.inputMarriageCertificate();
         certificate.displayCertificateInformation();
+        storage.setSMName(certificate.getWifeFirst() + " " + certificate.getWifeMiddle() + " " + certificate.getWifeLast());
+        storage.SMarriageinfo();
+        storage.printingForm();
+        
     
         // Condition to edit
         System.out.print("\tDo you want to edit? [Y] Yes or [N] No: ");
