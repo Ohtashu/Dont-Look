@@ -933,6 +933,11 @@ public void MarriageQuestion(){
     ques.put("25", "Full name of Mother: ");
     ques.put("26", "Citizenship of Mother: ");
 }
+
+public void updateMarriageStorage(MarriageStorage storage) {
+    storage.setSMName(getWifeFirst() + getWifeMiddle() + getWifeLast());
+    storage.SMarriageinfo();
+}
 }
 
 	// Ending of line of code

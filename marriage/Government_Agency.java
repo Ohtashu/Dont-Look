@@ -456,6 +456,8 @@ public class Government_Agency {
 		
 	}
 
+    
+
     static void process() {
         Scanner scanner = new Scanner(System.in);
         
@@ -475,6 +477,8 @@ public class Government_Agency {
             certificate.editCertificateInformation();
             certificate.displayCertificateInformation();
     
+            //Updator
+            certificate.updateMarriageStorage(storage);
             // System Repeats
             boolean systemRepeater = true;
             while (systemRepeater) {
@@ -496,7 +500,7 @@ public class Government_Agency {
             }
         }
         certificate.displayCertificateInformation();
-        // certificate.printerlol();
+        storage.printingForm();
     }
     
 
