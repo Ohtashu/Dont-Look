@@ -5,7 +5,7 @@ import java.util.*;
 public class Admin extends Birth_Storage{
     
     Scanner scn = new Scanner(System.in);
-    private int Navi = 1;
+    private int Navi = 1, News;
     private static String CodeC, change, PURP;
     private Map <String, String> AdminS = new HashMap();
     private Map AdminQ = new HashMap();
@@ -15,6 +15,8 @@ public class Admin extends Birth_Storage{
     Map  <String, String> DAdmin_Store = new HashMap();
     Queue<String> QA = new LinkedList();
     Queue<String> QAA = new LinkedList<>();
+    //Marriage Part
+    MarriageStorage marriageStorage = new MarriageStorage();
     
     public void AdminW(){
         HQuestion();
@@ -34,7 +36,8 @@ public class Admin extends Birth_Storage{
                         + "\n"
                         + "\n\t\t\t\t\tEnter purpose number: ");
         PURP = scn.next().toUpperCase();
-        
+     
+        if(PURP.equals("B") || PURP.equals("D" ) || PURP.equals("M")){
         System.out.print("Government Agencies"
                 + "\n[A] Add Feature"
                 + "\n[E] Edit"
@@ -61,6 +64,7 @@ public class Admin extends Birth_Storage{
                 
                 if(PURP.equalsIgnoreCase("B")){
                     Birth();
+                    
                 }else if(PURP.equalsIgnoreCase("D")){
                     Death();
                 }else if(PURP.equalsIgnoreCase("M")){
@@ -90,7 +94,25 @@ public class Admin extends Birth_Storage{
                     
                 break;
                 
+            default:
+                     System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+                     System.out.println("\t\t\t\t\t\t\t\t\t\tInvalid Input!!!");
+                     System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+     
         }
+                System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+                System.out.print("\t\t\t\t\t\t\t\t\t\tDo you wish to continue?"
+                                   + "\n\t\t\t\t\t\t\t\t\t[1] New Transaction"
+                                   + "\n\t\t\t\t\t\t\t\t\t[2] Exit Program");
+                            News = scn.nextInt(); 
+        
+        }else {
+            
+                     System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+                     System.out.println("\t\t\t\t\t\t\t\t\t\tInvalid Input!!!");
+                     System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+            
+            }
         
     }
     public void BDisplay(){
@@ -152,6 +174,7 @@ public class Admin extends Birth_Storage{
         switch(Ans){
             
             case 'E':
+                if(!AdminS.isEmpty()){
                  for(Map.Entry<String, String> eh : AdminS.entrySet()){
                     
                     System.out.println(eh.getKey() + ". " + eh.getValue());
@@ -300,6 +323,13 @@ public class Admin extends Birth_Storage{
                         }
                     }while(true);
                     }
+                }else{
+                    
+                     System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+                     System.out.println("\t\t\t\t\t\t\t\t\t\tNo DATA YET!!!!");
+                     System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+                    
+                }
                 break;
             case 'D':
                 if(!AdminS.isEmpty()){
@@ -312,7 +342,7 @@ public class Admin extends Birth_Storage{
                 String DCode = scn.next().toUpperCase();
                 
                if(AdminS.containsKey(DCode)){
-                
+                    
                     System.out.print("This Certificate is about get Deleted!"
                             + "\n[C] Continue"
                             + "\n[N] No: ");
@@ -321,9 +351,15 @@ public class Admin extends Birth_Storage{
                     
                     switch(DorN){
                         case 'C':
-                            setName(AdminS.get(DCode));
+                            AD.setDNAME(AdminS.get(DCode));
+                            AD.AdminDSS.putAll(BAdmin_Store);
+                            BAdmin_Store.clear();
+                            
                             System.out.println("The Certificate is being deleted....");
                             AD.AdminDS();
+                            BAdmin_Store.putAll(AD.AdminDSS);
+                            AdminS.remove(DCode);
+                            AD.AdminDSS.clear();
                          
                             
                         case 'N':
@@ -337,7 +373,9 @@ public class Admin extends Birth_Storage{
                 break;
                }
                 }else {
-                    System.out.println("No data yet!!");
+                    System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+                     System.out.println("\t\t\t\t\t\t\t\t\t\tNO DATA YET!!!");
+                     System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
                 }
             case 'V':
                 
@@ -350,10 +388,59 @@ public class Admin extends Birth_Storage{
         
     }
     public void Marriage(){
-        
+        System.out.println("\t------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("\n\tWIFE'S INFORMATION");
+        System.out.println("\t1a. First Name: " +  MAdmin_Store.get("1a" +marriageStorage.getWifeFirst()));
+        System.out.println("\t1b. Middle Name: " + MAdmin_Store.get("1b" + marriageStorage.getWifeMiddle()));
+        System.out.println("\t1c. Last Name: " +  MAdmin_Store.get("1c" + marriageStorage.getWifeLast()));
+        System.out.println("\t2. Date of Birth (MM/DD/YYYY): " + MAdmin_Store.get("2" + marriageStorage.getWifeDateOfBirth()));
+        System.out.println("\t3. Age: " + MAdmin_Store.get("3" + marriageStorage.getWifeAge()));
+        System.out.println("\t4. Place of Birth (City, Province): " + getWifePlaceOfBirth());
+        System.out.println("\t5. Sex(f/m): " + getWifeSex());
+        System.out.println("\t6. Citizenship: " + getWifeCitzen());
+        System.out.println("\t7a. Residence (Province): " + getWifeProvince());
+        System.out.println("\t7b. Residence (City/Municipality): " + getWifeCity());
+        System.out.println("\t7c. Residence (Baranggay): " + getWifeBarangay());
+        System.out.println("\t7d. Residence (House Number/Street): " + getWifeStreet());
+        System.out.println("\t8. Religion: " + getWifeReligion());
+        System.out.println("\t9. Civil status: " + getWifeStatus());
+        System.out.println("\t10. Full name of Father: " + getWifeFather());
+        System.out.println("\t11. Citizenship of Father: " + getWifeFatherCitizen());
+        System.out.println("\t12. Full name of Mother: " + getWifeMother());
+        System.out.println("\t13. Citizenship of Mother: " + getWifeMotherCitizen());
+        System.out.println("\t------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("\n\tHUSBAND'S INFORMATION");
+        System.out.println("\t14a. First Name: " + getHusbandFirst());
+        System.out.println("\t14b. Middle Name: " + getHusbandMiddle());
+        System.out.println("\t14c. Last Name: " + getHusbandLast());
+        System.out.println("\t15. Date of Birth (MM/DD/YYYY): " + getHusbandDateOfBirth());
+        System.out.println("\t16. Age: " + getHusbandAge());
+        System.out.println("\t17. Place of Birth (City, Province): " + getHusbandPlaceOfBirth());
+        System.out.println("\t18. Sex(f/m): " + getHusbandSex());
+        System.out.println("\t19. Citizenship: " + getHusbandCitizen());
+        System.out.println("\t20a. Residence (Province): " + getHusbandProvince());
+        System.out.println("\t20b. Residence (City/Municipality): " + getHusbandCity());
+        System.out.println("\t20c. Residence (Baranggay): " + getHusbandBarangay());
+        System.out.println("\t20d. Residence (House Number/Street): " + getHusbandStreet());
+        System.out.println("\t21. Religion: " + getHusbandReligion());
+        System.out.println("\t22. Civil status: " + getHusbandStatus());
+        System.out.println("\t23. Full name of Father: " + getHusbandFather());
+        System.out.println("\t24. Citizenship of Father: " + getHusbandFatherCitizen());
+        System.out.println("\t25. Full name of Mother: " + getHusbandMother());
+        System.out.println("\t26. Citizenship of Mother: " + getHusbandMotherCitizen());
+            System.out.println("\t------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("\tPlace of Marriage" + getPlaceMarriage());
+        System.out.println("\tDate of Marriage" + getDateMarriage());
+        System.out.println("\tThis is to certify that I " + getWifeFirst()+" "+getWifeMiddle()+" "+getWifeLast() +" and "+ getHusbandFirst()+" "+getHusbandMiddle()+" "+getHusbandLast()
+                            +",\nboth of legal age, of our own free will and accord,"
+                            + "\nthe presence of the person solemmizing this marriage and of the witness named below,"
+                            + "\ntake each other as husband and wife.");
     }
     public void Death(){
         
     }
+
+
+
 
 }

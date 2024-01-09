@@ -18,7 +18,6 @@ public class Government_Agency {
     static Queue <String> NumE = new LinkedList();
     static Queue <String> NumEE = new LinkedList();
     static Queue <String> NumEEE = new LinkedList();
-    static String[][] T1 = new String[2][100];
     static char PE, NoC;
     static int Cont, ResPurp;
     static double change, Copy, Price, Amount, T8, CoE, Navi, New = 1;
@@ -51,7 +50,9 @@ public class Government_Agency {
     
             admin.AdminW();
             BStore.BStore.clear();
+            if(!admin.BAdmin_Store.isEmpty()){
             BStore.BStore.putAll(admin.BAdmin_Store);
+            }
 
         }
         else if(identifier.equals("2")){
@@ -394,30 +395,90 @@ public class Government_Agency {
                 
                 //Case two for Printing Copy of Existing file
             case 2:
-               
-                System.out.print("\t\t\t\t\tFirst Name of the Certificate: ");
+               System.out.print("\t\t\t\t\t\t\t\t\t\tRegistration Certificate"
+                        + "\n\t\t\t\t\t\t\t\t\t\t[1] Birth"
+                        + "\n\t\t\t\t\t\t\t\t\t\t[2] Marriage"
+                        + "\n\t\t\t\t\t\t\t\t\t\t[3] Death"
+                        + "\n"
+                        + "\n\t\t\t\t\tEnter purpose number: ");
+               ResPurp = scn.nextInt();
+                        switch(ResPurp){
+                            
+                            case 1:        
+                        
+                System.out.print("\t\t\t\t\tFull Name of the Certificate: ");
                 scn.nextLine();
                 Fname = scn.nextLine();
                 
-      
-
-                    if(BStore.BStore.containsValue(Fname)){
-                    
-                    
+                    if(BStore.BStore.containsKey("1A" + Fname)){
+                    BStore.setName(Fname);
                     System.out.println("\t\t\t\t\t\t\t\t\t\tExisting File: " + BStore.getName());
                     PrintCopy();
                     
-               }else{
+                    }else{
+                        
                     System.out.println("\t\t\t\t\t\t\t\t\tNone existing Certificate!");
                 }
                 
-                System.out.println("----------------------------------------------------------");
                 System.out.print("\t\t\t\t\t\t\t\t\t\tDo you wish to continue?"
                                    + "\n\t\t\t\t\t\t\t\t\t[1] New Transaction"
                                    + "\n\t\t\t\t\t\t\t\t\t[2] Exit Program");
                             New = scn.nextInt(); 
                        
                 break;
+                            case 2:
+                                
+                System.out.print("\t\t\t\t\tFull Name of the Certificate: ");
+                scn.nextLine();
+                Fname = scn.nextLine();
+                        
+                    if(storage.Marriage_Storage.containsKey("1a" + Fname)){
+                    storage.setSMName(Fname);
+                    System.out.println("\t\t\t\t\t\t\t\t\t\tExisting File: " + storage.Marriage_Storage.get("1a" + storage.getSMName()) + " " + storage.Marriage_Storage.get("1b" + storage.getSMName())
+                    + " " + storage.Marriage_Storage.get("1c" + storage.getSMName()));
+                    PrintCopy();
+                    
+                    }else{
+                        
+                    System.out.println("\t\t\t\t\t\t\t\t\tNone existing Certificate!");
+                }
+                
+                System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+                System.out.print("\t\t\t\t\t\t\t\t\t\tDo you wish to continue?"
+                                   + "\n\t\t\t\t\t\t\t\t\t[1] New Transaction"
+                                   + "\n\t\t\t\t\t\t\t\t\t[2] Exit Program");
+                            New = scn.nextInt(); 
+                       
+                                
+                                break;
+                                
+                            case 3:
+                                System.out.print("\t\t\t\t\tFull Name of the Certificate: ");
+                                scn.nextLine();
+                                Fname = scn.nextLine();
+                
+                    if(STD.deathStorage.containsKey("1a" + Fname)){
+                    STD.setInfo(Fname);
+                    System.out.println("\t\t\t\t\t\t\t\t\t\tExisting File: " + STD.getInfo());
+                    PrintCopy();
+                    
+                    }else{
+                        
+                    System.out.println("\t\t\t\t\t\t\t\t\tNone existing Certificate!");
+                }
+                
+                System.out.println("\t\t\t------------------------------------------------------------------------------------------------------------------------");
+                System.out.print("\t\t\t\t\t\t\t\t\t\tDo you wish to continue?"
+                                   + "\n\t\t\t\t\t\t\t\t\t[1] New Transaction"
+                                   + "\n\t\t\t\t\t\t\t\t\t[2] Exit Program");
+                            New = scn.nextInt(); 
+                       
+                                
+                                break;
+                                
+                            default:
+                                System.out.println("Invalid Number");
+                }
             }
         }
        }while(New == 1);
@@ -500,20 +561,25 @@ public class Government_Agency {
             }
         }
         certificate.displayCertificateInformation();
-        storage.printingForm();
+ 
     }
     
 
     public static void PrintCopy() throws Exception{
+        
+        
                     System.out.print("\t\t\t\tDo you wish to get the copy of the Certificate?"
                                + "\n\t\t\t\t\t\t[1] Yes"
                                + "\n\t\t\t\t\t\t[2] No: ");
                        int YorN = scn.nextInt();
+                       
                        if(YorN == 1){
                            if(ResPurp == 1){
                            BStore.PrintCopy();
                            }else if(ResPurp == 3){
                            STD.printcopy();
+                           }else if(ResPurp == 2){
+                               storage.printingForm();
                            }
                            System.out.print("\t\t\t\tWhat kind of Method you want to choose"
                                    + "\n\t\t\t\t\t\t[1] Pick Up"
@@ -537,7 +603,7 @@ public class Government_Agency {
                                 System.out.println("\t\t\t\tPlease Check Pick up Information");
                                 System.out.println("");
                                 System.out.println("\t\t\t\tName: " + Fname);
-                                System.out.println("\t\t\t\tContact Numebr: " + Cont);
+                                System.out.println("\t\t\t\tContact Number: " + Cont);
                                 System.out.println("");
                                 System.out.println("\t\t\t\tPlease be informed that the Payment fee for one(1) copy"
                                         + "\n\t\t\t\tof PSA Certificate is Php 155");

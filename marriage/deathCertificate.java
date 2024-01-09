@@ -231,16 +231,49 @@ public class deathCertificate{
                     if(sex.equalsIgnoreCase("f") ||  sex.equalsIgnoreCase("m")){
                         break;
                     }
+					else{
+						System.out.println("\t\t\t\t\tInvalid Input!");
+					}
                  }while(true);
 
+			boolean deathCorrection = true;
+            while(deathCorrection){
 	        System.out.print("\t\t\t\t\t3. Date of Death (DD/MM/YYYY): ");
-	       dateOfDeath = scn.nextLine();
-
+	        dateOfDeath = scn.nextLine();
+		      if(!dateOfDeath.matches("\\d{2}/\\d{2}/\\d{4}")) {
+				System.out.println("\t\t\t\t\tInvalid Input!");
+			   deathCorrection = true;
+		       }
+			   else{
+				deathCorrection = false;
+			   }
+			}
+	        boolean birthCorrection = true;
+            while(birthCorrection){
 	        System.out.print("\t\t\t\t\t4. Date of Birth (DD/MM/YYYY): ");
 	        dateOfBirth = scn.nextLine();
-
-	        System.out.print("\t\t\t\t\t5. Age at the time of death: ");
-	        ageAtDeath = scn.nextLine(); 
+		      if(!dateOfBirth.matches("\\d{2}/\\d{2}/\\d{4}")) {
+				System.out.println("\t\t\t\t\tInvalid Input!");
+			   birthCorrection = true;
+		       }
+			  else{
+				birthCorrection = false;
+			   }
+			}
+			boolean ageDeath = true;
+			 while(ageDeath){
+				System.out.print("\t\t\t\t\t5. Age at the time of death: ");
+				ageAtDeath = scn.nextLine(); 
+		      if(!ageAtDeath.matches("[0-9]|[0-9]{2}")) {
+				System.out.println("\t\t\t\t\tInvalid Input!");
+			   ageDeath = true;
+		       }
+			   else{
+				ageDeath= false;
+			   }
+			}
+			
+	       
 	        
 	        System.out.print("\t\t\t\t\t6. Place of Death: ");
 	        placeOfDeath = scn.nextLine();

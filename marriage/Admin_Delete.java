@@ -6,13 +6,52 @@ import java.util.*;
 
 public class Admin_Delete extends Admin{
     
-    LinkedHashMap <String, Object>AdminDS = new LinkedHashMap();
-    LinkedHashMap <String, Object>Name = new LinkedHashMap();
+    LinkedHashMap <String, String>AdminDSS = new LinkedHashMap();
+    LinkedHashMap <String, String>AdminDS = new LinkedHashMap();
+    LinkedHashMap <String, String>Name = new LinkedHashMap();
     private int DS = 1;
     
+    private static String DNAME;
     
-    public void AdminDS(){
+    public void setDNAME(String DNAME){
+        this.DNAME = DNAME;
+    }
+    public String getDNAME(){
         
+        return DNAME;
+    }
+    public void AdminDS(){
+        System.out.println(AdminDSS);
+         for(int i = 1; i <= 13; i ++){
+                
+             String line = AdminDSS.remove( i + "A" + getDNAME());
+             System.out.println(getDNAME());
+             AdminDS.put(i + "A" + getDNAME(), line);
+           
+            }
+           
+            for(int i = 1; i <= 10; i++){
+                
+            String line = AdminDSS.remove( i + "M" + getDNAME());
+             AdminDS.put(i + "M" + getDNAME(), line);
+        
+            }
+          
+        for(int i = 1; i <= 10; i++){
+                
+            String line = AdminDSS.remove( i + "F" + getDNAME());
+             AdminDS.put(i + "F" + getDNAME(), line);
+       
+            }
+        
+        
+        
+    
+   
+        Name.put(DS +"B" ,AdminDS.get("1A" + getDNAME()) + " " + AdminDS.get("2A" + getDNAME()) + " " + AdminDS.get("3A" + getDNAME()));
+        
+        DS++;
+        /*
         AdminDS.put("1A" + getName() , BStore.remove("1A" + getName()));
         AdminDS.put("2A" + getName(), BStore.remove("2A" + getName()));
         AdminDS.put("3A" + getName(), BStore.remove("3A" + getName()));
@@ -52,33 +91,10 @@ public class Admin_Delete extends Admin{
         Name.put(DS +"B" ,BStore.get("1A" + getName()) + " " + BStore.get("2A" + getName()) + " " + BStore.get("3A" + getName()));
         
         DS++;
+            */
+        
+        System.out.println("\t\t\t\t\t\t\t\t\t\tSuccessfully Deleted!!");
     }
     
-    public void ClearningData(Scanner scanner){
-      
-        System.out.println("Do you want to Remove Data inside: ");
-        char choice = scanner.nextLine().toUpperCase().charAt(0);
-        if(choice == 'Y'){
-            
-            System.out.print("Enter the full name of the file");
-            String name = scanner.nextLine().toUpperCase();
-            
-            
-            if(BStore.containsValue(name)){
-                System.out.println("Deleting files");
-                setName(name);
-                AdminDS();
-                
-            }else{
-                System.out.println("None existing file!!");
-            }
-        
-        
-        
-    }
-        else if(choice == 'N'){
-            System.out.println("okay");
-  
-        }
-    }
+    
 }
